@@ -6,7 +6,7 @@ class Pembayaran extends MY_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->isLogin();
+		// $this->isLogin();
 		$this->load->model('Pembayaran_model');
         $this->load->library('image_lib');
 	}

@@ -11,7 +11,8 @@ class Home extends MY_Controller {
 	public function index()
 	{
 		if (empty($this->session->userdata('idpesertalelang'))) {
-			$this->load->view('login');			
+			// $this->load->view('login');			
+			redirect('login');
 		}else{
 			$data['menu'] = 'home';
 			$this->load->view('home', $data);			

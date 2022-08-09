@@ -88,26 +88,18 @@ $table .= '
 			<tbody>';
 
 
-$rspaket = $this->db->query("select * from v_paket_jadwal where convert(tgljammulai, date) between '$tglawal' and '$tglakhir' order by tgljammulai");
-if ($rspaket->num_rows()>0) {
-	$no=1;
-	foreach ($rspaket->result() as $rowpaket) {
-	  $table .= '
+$table .= '
 	    <tr style="font-weight: bold;">
 	      <td style="width: 5%; text-align: center; border-top: 1px solid #cdd0d4;">'.$no++.'</td>
-	      <td style="width: 15%; text-align: left; border-top: 1px solid #cdd0d4;">'.tglindonesia($rowpaket->tgljammulai).' <br>S/D '.tglindonesia($rowpaket->tgljamselesai).'</td>
-	      <td style="width: 35%; text-align: left; border-top: 1px solid #cdd0d4;">'.$rowpaket->namapaket.'</td>
-	      <td style="width: 15%; text-align: left; border-top: 1px solid #cdd0d4;">'.$rowpaket->namausaha.'<br>'.$rowpaket->nibusaha.'</td>
+	      <td style="width: 15%; text-align: left; border-top: 1px solid #cdd0d4;">01-06-2022 <br>S/D 31-08-2022</td>
+	      <td style="width: 35%; text-align: left; border-top: 1px solid #cdd0d4;">PAKET IDUL ADHA</td>
+	      <td style="width: 15%; text-align: left; border-top: 1px solid #cdd0d4;">Sedawe Utama<br>458787</td>
 	      <td style="width: 15%; text-align: right; border-top: 1px solid #cdd0d4;"></td>
 	      <td style="width: 15%; text-align: right; border-top: 1px solid #cdd0d4;"></td>
 	    </tr>
 	  ';
 
-	  $subhargadasar = 0;
-	  $subhargabid = 0;
-	  $rsdetail = $this->db->query("select * from v_paket_detail where idpaket='".$rowpaket->idpaket."'");
-	  if ($rsdetail->num_rows()>0) {
-	  	$table .= '
+$table .= '
 				    <tr>
 				      <td style="width: 5%; text-align: center;"></td>
 				      <td style="width: 15%; text-align: left;"></td>
@@ -117,42 +109,37 @@ if ($rspaket->num_rows()>0) {
 				    </tr>
 				  ';
 
-	  	foreach ($rsdetail->result() as $rowdetail) {
-	  		$hargabid =0;
-	  		if (!empty($rowpaket->idbidpemenang)) {
-	  			$rsbid = $this->db->query("select * from v_bid_detail where idbid='".$rowpaket->idbidpemenang."' and iditem='".$rowdetail->iditem."'");
-	  			if ($rsbid->num_rows()>0) {
-	  				$hargabid = $rsbid->row()->hargabid;
-	  			}
-		    }
-
-	  		$table .= '
+$table .= '
 				    <tr>
 				      <td style="width: 5%; text-align: center;"></td>
 				      <td style="width: 15%; text-align: left;"></td>
-				      <td style="width: 50%; text-align: left;" colspan="2">&nbsp;&nbsp;&nbsp;'.$rowdetail->merk.' '.$rowdetail->tipe.'</td>
-				      <td style="width: 15%; text-align: right;">'.format_rupiah($rowdetail->hargadasar).'</td>
-				      <td style="width: 15%; text-align: right;">'.format_rupiah($hargabid).'</td>
+				      <td style="width: 50%; text-align: left;" colspan="2">&nbsp;&nbsp;&nbsp;Honda Vario 110 eSP CBS</td>
+				      <td style="width: 15%; text-align: right;">Rp. 10,000,000</td>
+				      <td style="width: 15%; text-align: right;">Rp. 11.000.000</td>
 				    </tr>
 				  ';
 
-			$subhargadasar += $rowdetail->hargadasar;
-			$subhargabid += $hargabid;
-	  	}
+$table .= '
+				    <tr>
+				      <td style="width: 5%; text-align: center;"></td>
+				      <td style="width: 15%; text-align: left;"></td>
+				      <td style="width: 50%; text-align: left;" colspan="2">&nbsp;&nbsp;&nbsp;Honda Vario 110 eSP CBS</td>
+				      <td style="width: 15%; text-align: right;">Rp. 14,000,000</td>
+				      <td style="width: 15%; text-align: right;">Rp. 14.000.000</td>
+				    </tr>
+				  ';
 
-	  	$table .= '
+
+$table .= '
 				    <tr style="font-weight: bold;">
 				      <td style="width: 5%; text-align: center;"></td>
 				      <td style="width: 15%; text-align: left;">&nbsp;</td>
 				      <td style="width: 50%; text-align: right;" colspan="2">SUB TOTAL:</td>
-				      <td style="width: 15%; text-align: right; border-top: 1px solid #cdd0d4;">'.format_rupiah($subhargadasar).'</td>
-				      <td style="width: 15%; text-align: right; border-top: 1px solid #cdd0d4;">'.format_rupiah($subhargabid).'</td>
+				      <td style="width: 15%; text-align: right; border-top: 1px solid #cdd0d4;">Rp. 24.000.000</td>
+				      <td style="width: 15%; text-align: right; border-top: 1px solid #cdd0d4;">Rp. 25.000.000</td>
 				    </tr>
 				  ';
-	  }
-	  
-	}
-}
+
 $table .= ' </tbody>
 			</table>';
 
