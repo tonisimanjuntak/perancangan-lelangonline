@@ -1,0 +1,2 @@
+[12-Jun-2022 15:13:20 Asia/Jakarta] PHP Fatal error:  Only variables can be passed by reference in /home/serd5225/public_html/toni/analytical/application/controllers/Bobotkriteria.php on line 158
+[14-Jun-2022 15:22:48 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Perhitunganahp_model::get_bobotalternatif() in /home/serd5225/public_html/toni/analytical/application/models/Perhitunganahp_model.php on line 13
