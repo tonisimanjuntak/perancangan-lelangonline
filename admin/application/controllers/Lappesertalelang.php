@@ -7,7 +7,6 @@ class Lappesertalelang extends MY_Controller {
     {
         parent::__construct();
         $this->isLogin();
-        $this->load->model('Lappesertalelang_model');
 
     }
 
@@ -15,9 +14,6 @@ class Lappesertalelang extends MY_Controller {
     {
 
         $idpaket = $this->input->post("idpaket");
-		$rsbid = $this->db->query("select * from v_bid where idpaket = '".$idpaket."'");
-		
-		$data['rsbid'] = $rsbid;
 		$data['idpaket'] = $idpaket;
         $data['menu'] = 'lappesertalelang';
         $this->load->view('lappesertalelang/list', $data);
@@ -29,11 +25,6 @@ class Lappesertalelang extends MY_Controller {
 		$this->load->library('Pdf');
 		$subjudul .= "";
 		$idpaket = $this->uri->segment(3);
-		$rsbid = $this->db->query("select * from v_bid where idpaket = '".$idpaket."'");
-		$rowpaket = $this->db->query("select * from v_paket_jadwal where idpaket = '".$idpaket."'")->row();
-
-		$data['rsbid'] = $rsbid;
-		$data['rowpaket'] = $rowpaket;
 		$data['idpaket'] = $idpaket;
         $this->load->view('lappesertalelang/cetak', $data);
 	}

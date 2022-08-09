@@ -70,42 +70,35 @@
                         <div class="col-md-12">
 
                           <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-condesed" id="table">
-                              <thead>
-                                <tr class="bg-info" style="">
-                                  <th style="width: 5%; text-align: center;">NO</th>
-                                  <th style="text-align: center;">NAMA PAKET</th>
-                                  <th style="text-align: left;">TANGGAL MULAI</th>
-                                  <th style="text-align: left;">HARGA DASAR</th>
-                                  <th style="text-align: right;">HARGA BID</th>
-                                  <th style="text-align: right;">PEMENANG LELANG</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <?php  
-                                  $rspaket = $this->db->query("select * from v_paket_jadwal where convert(tgljammulai, date) between '$tglawal' and '$tglakhir' order by tgljammulai");
-                                  if ($rspaket->num_rows()>0) {
-                                    $no=1;
-                                    foreach ($rspaket->result() as $rowpaket) {
-                                      echo '
-                                        <tr class="" style="">
-                                          <td style="width: 5%; text-align: center;">'.$no++.'</td>
-                                          <td style="text-align: center;">'.$rowpaket->namapaket.'</td>
-                                          <td style="text-align: left;">'.tgljamindonesia($rowpaket->tgljammulai).' S/D '.tgljamindonesia($rowpaket->tgljamselesai).'</td>
-                                          <td style="text-align: left;">'.format_rupiah($rowpaket->totalhargadasarpaket).'</td>
-                                          <td style="text-align: right;">'.format_rupiah($rowpaket->totalhargabid).'</td>
-                                          <td style="text-align: right;">'.$rowpaket->namausaha.'<br>'.$rowpaket->nibusaha.'</td>
-                                        </tr>
-
-                                      ';
-                                    }
-                                  }
-
-                                ?>
-                              </tbody>              
+                          <table class="table table-bordered table-striped table-condesed" id="table">
+                            <thead>
+                              <tr class="bg-info" style="">
+                                <th style="text-align: center; width: 5%;">NO</th>
+                                <th style="text-align: center;">NAMA PAKET</th>
+                                <th style="text-align: center;">TGL MULAI<br>TGL SELESAI</th>
+                                <th style="text-align: center;">JUMLAH ITEM</th>
+                                <th style="text-align: center;">HARGA DASAR</th>
+                                <th style="text-align: center;">HARGA BID</th>
+                                <th style="text-align: center;">PEMENANG</th>
+                              </tr>
+                            </thead>
+                            <tbody>
                               
-                            </table>
-                          </div>
+                              <tr>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;"><strong>PAKET IDUL ADHA</strong><br>Promo Idul Adha</td>
+                                <td style="text-align: center;">01-04-2022<br>30-06-2022</td>
+                                <td style="text-align: center;">2</td>
+                                <td style="text-align: center;">24.0000.000</td>
+                                <td style="text-align: center;">25.0000.000</td>
+                                <td style="text-align: center;">Sedawe Utama</td>
+                              </tr>
+
+
+                            </tbody>              
+                          </table>
+                        </div>
+
 
                         </div>
 

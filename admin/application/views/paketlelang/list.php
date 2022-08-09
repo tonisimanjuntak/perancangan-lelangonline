@@ -39,7 +39,7 @@
                           <table class="table table-bordered table-striped table-condesed" id="table">
                             <thead>
                               <tr class="bg-info" style="">
-                                <th style="width: 5%; text-align: center;">NO</th>
+                                <th style="text-align: center; width: 5%;">NO</th>
                                 <th style="text-align: center;">NAMA PAKET</th>
                                 <th style="text-align: center;">TGL MULAI<br>TGL SELESAI</th>
                                 <th style="text-align: center;">JUMLAH ITEM</th>
@@ -50,6 +50,69 @@
                             </thead>
                             <tbody>
                               
+                              <tr>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;"><strong>PROMO HAJI RAYA</strong><br>Murah Meriah Honda Scoopy</td>
+                                <td style="text-align: center;">01-06-2022<br>31-08-2022</td>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;">10.0000.000</td>
+                                <td style="text-align: center;"><span class="badge badge-danger">Belum Terjual</span></td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('paketlelang/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('paketlelang/cetak/0') ?>" target="_blank">Cetak</a>
+                                        <a class="dropdown-item" href="<?php echo site_url('paketlelang/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;"><strong>PAKET IDUL ADHA</strong><br>Promo Idul Adha</td>
+                                <td style="text-align: center;">01-04-2022<br>30-06-2022</td>
+                                <td style="text-align: center;">2</td>
+                                <td style="text-align: center;">24.0000.000</td>
+                                <td style="text-align: center;"><span class="badge badge-success">Terjual</span></td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('paketlelang/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('paketlelang/cetak/0') ?>" target="_blank">Cetak</a>
+                                        <a class="dropdown-item" href="<?php echo site_url('paketlelang/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;"><strong>Paket Juni 2022</strong><br>Motor Grade Gabungan</td>
+                                <td style="text-align: center;">01-06-2022<br>17-08-2022</td>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;">11.0000.000</td>
+                                <td style="text-align: center;"><span class="badge badge-danger">Belum Terjual</span></td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('paketlelang/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('paketlelang/cetak/0') ?>" target="_blank">Cetak</a>
+                                        <a class="dropdown-item" href="<?php echo site_url('paketlelang/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
+
                             </tbody>              
                           </table>
                         </div>
@@ -90,30 +153,10 @@
       $(document).ready(function() {
 
         //defenisi datatable
-        table = $("#table").DataTable({ 
-            "select": true,
-            "processing": true, 
-            "serverSide": true, 
-            "order": [], 
-             "ajax": {
-                "url": "<?php echo site_url('paketlelang/datatablesource')?>",
-                "type": "POST"
-            },
-            "columnDefs": [
-                            { "targets": [ 0 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 1 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 2 ], "className": "dt-body-center" },
-                            { "targets": [ 3 ], "className": "dt-body-center" },
-                            { "targets": [ 4 ], "className": "dt-body-center" },
-                            { "targets": [ 5 ], "className": "dt-body-center" },
-                            { "targets": [ 6 ], "orderable": false, "className": "dt-body-center" },
-            ],
-     
-        });
+        table = $("#table").DataTable(); //end (document).ready
 
-      }); //end (document).ready
+      });
 
-      
       $(document).on("click", "#hapus", function(e) {
         var link = $(this).attr("href");
         e.preventDefault();

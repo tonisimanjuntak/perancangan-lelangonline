@@ -91,22 +91,22 @@ $table  .= '<table border="0" cellpadding="2">
 	              <tr style="font-weight: bold; font-size: 14px;">
 	                <th style="width: 25%; text-align: left;">ID PAKET</th>
 	                <th style="width: 5%; text-align: center;">:</th>
-	                <th style="width: 70%; text-align: left;">'.$rowpaketlelang->idpaket.'</th>
+	                <th style="width: 70%; text-align: left;">2207110001</th>
 	              </tr>
 	              <tr style="font-weight: bold; font-size: 14px;">
 	                <th style="width: 25%; text-align: left;">TGL LELANG</th>
 	                <th style="width: 5%; text-align: center;">:</th>
-	                <th style="width: 70%; text-align: left;">'.date('d-m-Y H:i', strtotime($rowpaketlelang->tgljammulai)).' S/D '.date('d-m-Y H:i', strtotime($rowpaketlelang->tgljamselesai)).'</th>
+	                <th style="width: 70%; text-align: left;">01-06-2022 S/D 31-08-2022</th>
 	              </tr>
 	              <tr style="font-weight: bold; font-size: 14px;">
 	                <th style="width: 25%; text-align: left;">TOTAL HARGA PAKET</th>
 	                <th style="width: 5%; text-align: center;">:</th>
-	                <th style="width: 70%; text-align: left;">'.format_rupiah($rowpaketlelang->totalhargadasarpaket).'</th>
+	                <th style="width: 70%; text-align: left;">Rp. 10.000.000 </th>
 	              </tr>
 	              <tr style="font-weight: bold; font-size: 14px;">
 	                <th style="width: 25%; text-align: left;">PEMENANG LELANG</th>
 	                <th style="width: 5%; text-align: center;">:</th>
-	                <th style="width: 70%; text-align: left;">'.$namapemenang.'</th>
+	                <th style="width: 70%; text-align: left;">-</th>
 	              </tr>
 	            </thead>
 	         </table>
@@ -134,71 +134,123 @@ $table .= '
 
 
 
-if ($rspaketlelangdetail->num_rows()>0) {
-	$no=1;
-	foreach ($rspaketlelangdetail->result() as $rowdetail) {
-		if (!empty($rowdetail->fotoitem) ) {
-            $foto = base_url('uploads/itemlelang/'.$rowdetail->fotoitem);
-        }else{
-            $foto = base_url('images/sepedamotor.png');
-        }
+$foto = base_url('uploads/itemlelang/Honda_Scoopy.png');
 
-		$table .= '
+
+$table .= '
 
 			  <tr class="" style="">
-	            <td style="width: 5%; text-align: center;" rowspan="8">'.$no++.'</td>
+	            <td style="width: 5%; text-align: center;" rowspan="8">1</td>
 	            <td style="width: 20%; text-align: center;" rowspan="8"><img src="'.$foto.'" alt=""></td>
 	            <td style="width: 20%; text-align: center;" rowspan="8">
-	            	'.$rowdetail->tipe.'<br>
-	            	'.$rowdetail->merk.'<br>
+	            	Vario 110 eSP CBS<br>
+	            	Honda<br>
 	            </td>
 	            <td style="width: 10%; text-align: center;">Nomor Polisi</td>
 	            <td style="width: 5%; text-align: center;">:</td>
-	            <td style="width: 10%; text-align: center;">'.$rowdetail->nopolisi.'</td>
-	            <td style="width: 15%; text-align: center;" rowspan="8">'.format_rupiah($rowdetail->harga).'</td>                
-	            <td style="width: 15%; text-align: center;" rowspan="8">'.$rowdetail->statusitem.'</td>
+	            <td style="width: 10%; text-align: center;">KB 4444</td>
+	            <td style="width: 15%; text-align: center;" rowspan="8">Rp. 10.000.000</td>                
+	            <td style="width: 15%; text-align: center;" rowspan="8">Belum Terjual</td>
 	          </tr>
 			  <tr class="" style="">
 			  	<td style="width: 10%; text-align: center;">Nomor Mesin</td>
 	            <td style="width: 5%; text-align: center;">:</td>
-	            <td style="width: 10%; text-align: center;">'.$rowdetail->nomesin.'</td>
+	            <td style="width: 10%; text-align: center;">98726561</td>
 	          </tr>
 	          <tr class="" style="">
 			  	<td style="width: 10%; text-align: center;">Nomor Rangka</td>
 	            <td style="width: 5%; text-align: center;">:</td>
-	            <td style="width: 10%; text-align: center;">'.$rowdetail->norangka.'</td>
+	            <td style="width: 10%; text-align: center;">029737267</td>
 	          </tr>
 	          <tr class="" style="">
 			  	<td style="width: 10%; text-align: center;">Nomor BPKB</td>
 	            <td style="width: 5%; text-align: center;">:</td>
-	            <td style="width: 10%; text-align: center;">'.$rowdetail->nobpkb.'</td>
+	            <td style="width: 10%; text-align: center;">24678989</td>
 	          </tr>
 	          <tr class="" style="">
 			  	<td style="width: 10%; text-align: center;">Warna</td>
 	            <td style="width: 5%; text-align: center;">:</td>
-	            <td style="width: 10%; text-align: center;">'.$rowdetail->warna.'</td>
+	            <td style="width: 10%; text-align: center;">Merah</td>
 	          </tr>
 	          <tr class="" style="">
 			  	<td style="width: 10%; text-align: center;">Tahun Pembuatan</td>
 	            <td style="width: 5%; text-align: center;">:</td>
-	            <td style="width: 10%; text-align: center;">'.$rowdetail->thnpembuatan.'</td>
+	            <td style="width: 10%; text-align: center;">2019</td>
 	          </tr>
 	          <tr class="" style="">
 			  	<td style="width: 10%; text-align: center;">Isi Silinder</td>
 	            <td style="width: 5%; text-align: center;">:</td>
-	            <td style="width: 10%; text-align: center;">'.$rowdetail->isisilinder.'</td>
+	            <td style="width: 10%; text-align: center;">110</td>
 	          </tr>
 	          <tr class="" style="">
 			  	<td style="width: 10%; text-align: center;">Grade</td>
 	            <td style="width: 5%; text-align: center;">:</td>
-	            <td style="width: 10%; text-align: center;">'.$rowdetail->grade.'</td>
+	            <td style="width: 10%; text-align: center;">B</td>
 	          </tr>
 
 
 
 		';
-	}
-}
+
+
+$foto = base_url('uploads/itemlelang/Honda_SH150i.png');
+
+$table .= '
+
+			  <tr class="" style="">
+	            <td style="width: 5%; text-align: center;" rowspan="8">2</td>
+	            <td style="width: 20%; text-align: center;" rowspan="8"><img src="'.$foto.'" alt=""></td>
+	            <td style="width: 20%; text-align: center;" rowspan="8">
+	            	Vario 110 eSP CBS<br>
+	            	Honda<br>
+	            </td>
+	            <td style="width: 10%; text-align: center;">Nomor Polisi</td>
+	            <td style="width: 5%; text-align: center;">:</td>
+	            <td style="width: 10%; text-align: center;">KB 2323</td>
+	            <td style="width: 15%; text-align: center;" rowspan="8">Rp. 12.000.000</td>                
+	            <td style="width: 15%; text-align: center;" rowspan="8">Belum Terjual</td>
+	          </tr>
+			  <tr class="" style="">
+			  	<td style="width: 10%; text-align: center;">Nomor Mesin</td>
+	            <td style="width: 5%; text-align: center;">:</td>
+	            <td style="width: 10%; text-align: center;">23432423</td>
+	          </tr>
+	          <tr class="" style="">
+			  	<td style="width: 10%; text-align: center;">Nomor Rangka</td>
+	            <td style="width: 5%; text-align: center;">:</td>
+	            <td style="width: 10%; text-align: center;">4354363</td>
+	          </tr>
+	          <tr class="" style="">
+			  	<td style="width: 10%; text-align: center;">Nomor BPKB</td>
+	            <td style="width: 5%; text-align: center;">:</td>
+	            <td style="width: 10%; text-align: center;">53453453</td>
+	          </tr>
+	          <tr class="" style="">
+			  	<td style="width: 10%; text-align: center;">Warna</td>
+	            <td style="width: 5%; text-align: center;">:</td>
+	            <td style="width: 10%; text-align: center;">Hitam</td>
+	          </tr>
+	          <tr class="" style="">
+			  	<td style="width: 10%; text-align: center;">Tahun Pembuatan</td>
+	            <td style="width: 5%; text-align: center;">:</td>
+	            <td style="width: 10%; text-align: center;">2019</td>
+	          </tr>
+	          <tr class="" style="">
+			  	<td style="width: 10%; text-align: center;">Isi Silinder</td>
+	            <td style="width: 5%; text-align: center;">:</td>
+	            <td style="width: 10%; text-align: center;">110</td>
+	          </tr>
+	          <tr class="" style="">
+			  	<td style="width: 10%; text-align: center;">Grade</td>
+	            <td style="width: 5%; text-align: center;">:</td>
+	            <td style="width: 10%; text-align: center;">B</td>
+	          </tr>
+
+
+
+		';
+
+
 
 
 $table .= ' </tbody>

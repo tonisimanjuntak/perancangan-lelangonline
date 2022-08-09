@@ -42,20 +42,9 @@
                                   <label for="" class="">Nama Paket Lelang</label>
                                   <select name="idpaket" id="idpaket" class="form-control">
                                     <option value="">Pilih paket lelang</option>
-                                    <?php  
-                                      $rspaket = $this->db->query("select * from v_paket_jadwal order by idpaket desc");
-                                      if ($rspaket->num_rows()>0) {
-                                        foreach ($rspaket->result() as $rowpaket) {
-                                          $selected ='';
-                                          if ($rowpaket->idpaket==$idpaket) {
-                                            $selected = 'selected="selected"';
-                                          }
-                                          echo '
-                                            <option value="'.$rowpaket->idpaket.'" '.$selected.'>'.$rowpaket->namapaket.'</option>
-                                          ';
-                                        }
-                                      }
-                                    ?>
+                                    <option value="1">PROMO HAJI RAYA</option>
+                                    <option value="1">PAKET IDUL ADHA</option>
+                                    <option value="1">Paket Juni 2022</option>
                                   </select>  
 
                                 </div>
@@ -83,32 +72,48 @@
                             <table class="table table-bordered table-striped table-condesed" id="table">
                               <thead>
                                 <tr class="bg-info" style="">
-                                  <th style="width: 5%; text-align: center;">No</th>
-                                  <th style="text-align: center;">Tgl Bid<br>ID</th>
-                                  <th style="text-align: left;">Nama Usaha<br>NIB Usaha</th>
-                                  <th style="text-align: left;">Nama Pemilik<br>NIK Pemilik</th>
-                                  <th style="text-align: right;">Total Bid</th>
+                                  <th style="width: 5%; text-align: center;">NO</th>
+                                  <th style="width: 15%; text-align: center;">NAMA PAKET</th>
+                                  <th style="text-align: center;">TGL BID</th>
+                                  <th style="text-align: center;">NAMA USAHA<br>NIB USAHA</th>
+                                  <th style="text-align: center;">NAMA PEMILIK<br>NIK PEMILIK</th>
+                                  <th style="text-align: center;">HARGA DASAR</th>
+                                  <th style="text-align: center;">HARGA BID</th>
+                                  <th style="text-align: center;">STATUS BID</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <?php  
-                                  if ($rsbid->num_rows()>0) {
-                                    $no=1;
-                                    foreach ($rsbid->result() as $row) {
-                                      echo '
-                                        <tr>
-                                          <td style="text-align: center;">'.$no++.'</td>
-                                          <td style="text-align: center;">'.tgljamindonesia($row->tglbid).'<br>'.$row->idbid.'</td>
-                                          <td style="text-align: left;">'.$row->namausaha.'<br>'.$row->nibusaha.'</td>
-                                          <td style="text-align: center;">'.$row->namapemilik.'<br>'.$row->nikpemilik.'</td>
-                                          <td style="text-align: right;">'.format_rupiah($row->totalhargabid).'</td>
-                                        </tr>
-                                      ';
-                                    }
-                                  }
-                                ?>
+                                <tr>
+                                  <td style="text-align: center;">1</td>
+                                  <td style="text-align: center;">PROMO HAJI RAYA</td>
+                                  <td style="text-align: center;">04-06-2022</td>
+                                  <td style="text-align: center;">UD Mitra Bumi Perkasa<br>4578878</td>
+                                  <td style="text-align: center;">Budi Sulistiyo<br>48785450025001</td>
+                                  <td style="text-align: center;">10.000.000</td>
+                                  <td style="text-align: center;">11.000.000</td>
+                                  <td style="text-align: center;">Menunggu</td>
+                                </tr>
+                                <tr>
+                                  <td style="text-align: center;">2</td>
+                                  <td style="text-align: center;">PAKET IDUL ADHA</td>
+                                  <td style="text-align: center;">12-07-2022</td>
+                                  <td style="text-align: center;">Sedawe Utama<br>458787</td>
+                                  <td style="text-align: center;">Trihardoyo<br>659898975454001</td>
+                                  <td style="text-align: center;">24.000.000</td>
+                                  <td style="text-align: center;">25.000.000</td>
+                                  <td style="text-align: center;"><span class="badge badge-success">Menang</span></td>
+                                </tr>
+                                <tr>
+                                  <td style="text-align: center;">2</td>
+                                  <td style="text-align: center;">PAKET IDUL ADHA</td>
+                                  <td style="text-align: center;">10-07-2022</td>
+                                  <td style="text-align: center;">CV. Agung Perkasa<br>4578955</td>
+                                  <td style="text-align: center;">Susi Susanti<br>5658445154001</td>
+                                  <td style="text-align: center;">24.000.000</td>
+                                  <td style="text-align: center;">24.000.000</td>
+                                  <td style="text-align: center;"><span class="badge badge-danger">Kalah</span></td>
+                                </tr>
                               </tbody>              
-                              
                             </table>
                           </div>
 

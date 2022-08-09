@@ -34,7 +34,7 @@
                       
                       <div class="row">
                         
-                        <input type="hidden" name="idpembayaran" id="idpembayaran" value="<?php echo $idpembayaran ?>">
+                        <input type="hidden" name="idpembayaran" id="idpembayaran" value="">
 
                         <div class="col-12">
 
@@ -43,12 +43,12 @@
                               <div class="row">
                     
                                 <div class="col-md-8">
-                                  <h5 class="text-muted"><?php echo $rowpaket->namapaket ?></h5>
-                                  <?php echo $rowpaket->deskripsi ?>
+                                  <h5 class="text-muted">PAKET IDUL ADHA</h5>
+                                  Promo Idul Adha
                                 </div>
                                 <div class="col-md-4 text-center" style="font-size: 26px; font-weight: bold;">
                                   <?php  
-                                      echo '<i class="text-success">TOTAL BID : Rp. '.format_rupiah($rowpaket->totalhargabid).'</i>';
+                                      echo '<i class="text-success">TOTAL BID : Rp. 25.000.000</i>';
                                   ?>
                                   
                                 </div>
@@ -58,8 +58,8 @@
 
                                   <form action="<?php echo site_url('konfirmasipembayaran/simpankonfirmasi') ?>" id ="form" method="post" enctype="multipart/form-data">
                                     
-                                    <input type="hidden" name="idpembayaran" id="idpembayaran" value="<?php echo $idpembayaran ?>">
-                                    <input type="hidden" name="idpaket" id="idpaket" value="<?php echo $idpaket ?>">
+                                    <input type="hidden" name="idpembayaran" id="idpembayaran" value="">
+                                    <input type="hidden" name="idpaket" id="idpaket" value="">
 
                                     <div class="row">
                                      
@@ -70,10 +70,7 @@
                                               
                                               <div class="form-group row text center">
                                                 <div class="col-md-12 mt-3 text-center">
-                                                  <img src="<?php echo $fotopembayaran; ?>" id="output1" class="img-thumbnail" style="width:100%;max-height:100%;">
-                                                  
-
-                                                  
+                                                  <img src="<?php echo base_url('uploads/pembayaran/bukti-pembayaran-STAIM0002.jpg'); ?>" id="output1" class="img-thumbnail" style="width:100%;max-height:100%;">             
                                                 </div>
                                             </div>
 
@@ -88,9 +85,9 @@
                                           <label for="" class="col-md-12 col-form-label">Status Pembayaran</label>
                                           <div class="col-md-12">
                                             <select name="statuspembayaran" id="statuspembayaran" class="form-control">
-                                              <option value="Menunggu Konfirmasi" <?php echo ($rowpembayaran->statuspembayaran=='Menunggu Konfirmasi') ? 'selected="selected"' : '' ?>>Menunggu Konfirmasi</option>
-                                              <option value="Ditolak" <?php echo ($rowpembayaran->statuspembayaran=='Ditolak') ? 'selected="selected"' : '' ?>>Ditolak</option>
-                                              <option value="Sudah Diterima" <?php echo ($rowpembayaran->statuspembayaran=='Sudah Diterima') ? 'selected="selected"' : '' ?>>Sudah Diterima</option>
+                                              <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
+                                              <option value="Ditolak">Ditolak</option>
+                                              <option value="Sudah Diterima">Sudah Diterima</option>
                                             </select>
                                           </div>
                                           <div class="col-md-4 mt-3">
@@ -122,32 +119,32 @@
                                             <tr style="font-size: 12px;">
                                               <td>Id Jadwal Lelang</td>
                                               <td>:</td>
-                                              <td><?php echo $rowpaket->idpaket ?></td>
+                                              <td>212111122</td>
                                             </tr>
                                             <tr style="font-size: 12px;">
                                               <td>Tgl Mulai Lelang</td>
                                               <td>:</td>
-                                              <td><?php echo date('d-m-Y H:i', strtotime($rowpaket->tgljammulai))  ?></td>
+                                              <td>01-04-2022</td>
                                             </tr>
                                             <tr style="font-size: 12px;">
                                               <td>Tgl Berakhir Lelang</td>
                                               <td>:</td>
-                                              <td><?php echo date('d-m-Y H:i', strtotime($rowpaket->tgljammulai))  ?></td>
+                                              <td>30-06-2022</td>
                                             </tr>
                                             <tr>
                                               <td>Total Harga Dasar</td>
                                               <td>:</td>
-                                              <td><?php echo format_rupiah($rowpaket->totalhargadasarpaket) ?></td>
+                                              <td>24.0000.000</td>
                                             </tr>
                                             <tr>
                                               <td>Total Harga Bid</td>
                                               <td>:</td>
-                                              <td style="font-weight: bold; font-size: 18px;"><?php echo format_rupiah($rowpaket->totalhargabid) ?></td>
+                                              <td style="font-weight: bold; font-size: 18px;">25.0000.000</td>
                                             </tr>
                                             <tr>
                                               <td>Pemenang Lelang</td>
                                               <td>:</td>
-                                              <td><?php echo $rowpaket->namausaha ?></td>
+                                              <td>Sedawe Utama</td>
                                             </tr>
                                           </table>
 
@@ -220,7 +217,6 @@
 
     <script type="text/javascript">
   
-    var idpembayaran = "<?php echo($idpembayaran) ?>";
 
     $(document).ready(function() {
 

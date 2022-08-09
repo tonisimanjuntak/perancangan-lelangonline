@@ -49,7 +49,19 @@
                               </tr>
                             </thead>
                             <tbody>
-                              
+                                <tr>
+                                  <td style="width: 5%; text-align: center;">1</td>
+                                  <td style="width: 15%; text-align: center;">19-07-2022<br>ID</td>
+                                  <td style="width: 15%; text-align: center;">PAKET IDUL ADHA</td>
+                                  <td style="text-align: center;">Sedawe Utama<br>458787</td>
+                                  <td style="text-align: center;">24.000.000</td>
+                                  <td style="text-align: center;">25.000.000</td>
+                                  <td style="text-align: center;"><i class="fa fa-check text-success"></i></td>
+                                  <td style="text-align: center;"><span class="badge badge-warning">Menunggu Konfirmasi</span></td>
+                                  <td style="text-align: center; width: 20%;">
+                                    <a href="<?php echo site_url('konfirmasipembayaran/lihat/1') ?>" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Lihat</a>
+                                  </td>
+                                </tr>
                             </tbody>              
                           </table>
                         </div>
@@ -90,28 +102,7 @@
       $(document).ready(function() {
 
         //defenisi datatable
-        table = $("#table").DataTable({ 
-            "select": true,
-            "processing": true, 
-            "serverSide": true, 
-            "order": [], 
-             "ajax": {
-                "url": "<?php echo site_url('konfirmasipembayaran/datatablesource')?>",
-                "type": "POST"
-            },
-            "columnDefs": [
-                            { "targets": [ 0 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 1 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 2 ], "className": "dt-body-center" },
-                            { "targets": [ 3 ], "className": "dt-body-center" },
-                            { "targets": [ 4 ], "className": "dt-body-center" },
-                            { "targets": [ 5 ], "className": "dt-body-center" },
-                            { "targets": [ 6 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 7 ], "className": "dt-body-center" },
-                            { "targets": [ 8 ], "orderable": false, "className": "dt-body-center" },
-            ],
-     
-        });
+        table = $("#table").DataTable();
 
       }); //end (document).ready
 

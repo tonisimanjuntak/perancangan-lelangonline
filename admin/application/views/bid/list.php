@@ -49,7 +49,69 @@
                               </tr>
                             </thead>
                             <tbody>
-                              
+                              <tr>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;">PROMO HAJI RAYA</td>
+                                <td style="text-align: center;">04-06-2022</td>
+                                <td style="text-align: center;">UD Mitra Bumi Perkasa<br>4578878</td>
+                                <td style="text-align: center;">Budi Sulistiyo<br>48785450025001</td>
+                                <td style="text-align: center;">10.000.000</td>
+                                <td style="text-align: center;">11.000.000</td>
+                                <td style="text-align: center;">Menunggu</td>
+                                <td style="text-align: center; width: 20%;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('bid/lihat/0') ?>" class="btn btn-sm btn-success btn-circle"><i class="fa fa-search"></i> Lihat</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('bid/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="text-align: center;">2</td>
+                                <td style="text-align: center;">PAKET IDUL ADHA</td>
+                                <td style="text-align: center;">12-07-2022</td>
+                                <td style="text-align: center;">Sedawe Utama<br>458787</td>
+                                <td style="text-align: center;">Trihardoyo<br>659898975454001</td>
+                                <td style="text-align: center;">24.000.000</td>
+                                <td style="text-align: center;">25.000.000</td>
+                                <td style="text-align: center;"><span class="badge badge-success">Menang</span></td>
+                                <td style="text-align: center; width: 20%;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('bid/lihat/0') ?>" class="btn btn-sm btn-success btn-circle"><i class="fa fa-search"></i> Lihat</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('bid/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="text-align: center;">2</td>
+                                <td style="text-align: center;">PAKET IDUL ADHA</td>
+                                <td style="text-align: center;">10-07-2022</td>
+                                <td style="text-align: center;">CV. Agung Perkasa<br>4578955</td>
+                                <td style="text-align: center;">Susi Susanti<br>5658445154001</td>
+                                <td style="text-align: center;">24.000.000</td>
+                                <td style="text-align: center;">24.000.000</td>
+                                <td style="text-align: center;"><span class="badge badge-danger">Kalah</span></td>
+                                <td style="text-align: center; width: 20%;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('bid/lihat/0') ?>" class="btn btn-sm btn-success btn-circle"><i class="fa fa-search"></i> Lihat</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('bid/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
                             </tbody>              
                           </table>
                         </div>
@@ -90,28 +152,7 @@
       $(document).ready(function() {
 
         //defenisi datatable
-        table = $("#table").DataTable({ 
-            "select": true,
-            "processing": true, 
-            "serverSide": true, 
-            "order": [], 
-             "ajax": {
-                "url": "<?php echo site_url('bid/datatablesource')?>",
-                "type": "POST"
-            },
-            "columnDefs": [
-                            { "targets": [ 0 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 1 ], "className": "dt-body-center" },
-                            { "targets": [ 2 ], "className": "dt-body-center" },
-                            { "targets": [ 3 ], "className": "dt-body-center" },
-                            { "targets": [ 4 ], "className": "dt-body-center" },
-                            { "targets": [ 5 ], "className": "dt-body-center" },
-                            { "targets": [ 6 ], "className": "dt-body-center" },
-                            { "targets": [ 7 ], "className": "dt-body-center" },
-                            { "targets": [ 8 ], "orderable": false, "className": "dt-body-center" },
-            ],
-     
-        });
+        table = $("#table").DataTable();
 
       }); //end (document).ready
 

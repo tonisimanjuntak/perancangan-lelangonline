@@ -7,7 +7,6 @@ class Lappemenanglelang extends my_Controller {
     {
         parent::__construct();
         $this->isLogin();
-        $this->load->model('Lappemenanglelang_model');
 
     }
 

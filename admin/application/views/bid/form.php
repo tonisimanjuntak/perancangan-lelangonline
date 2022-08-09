@@ -50,21 +50,7 @@
                                   <div class="form-group row text center">
                                     <label for="" class="col-md-12 col-form-label">Foto Pengguna <span style="color: red; font-size: 12px; font-weight: bold;"><i> Max ukuran file 2MB</i></span></label>
                                     <div class="col-md-12 mt-3 text-center">
-                                      <img src="<?php echo base_url('uploads/pesertalelang/'.$rowbid->foto); ?>" id="output1" class="img-thumbnail" style="width:70%;max-height:70%;">
-                                      <div class="form-group">
-                                          <span class="btn btn-primary btn-file btn-block;" style="width:70%;">
-                                            <span class="fileinput-new"><span class="fa fa-camera"></span> Upload Foto</span>
-                                            <input type="file" name="file" id="file" accept="image/*" onchange="loadFile1(event)">
-                                            <input type="hidden" value="" name="file_lama" id="file_lama" class="form-control" />
-                                          </span>
-                                      </div>
-                                      <script type="text/javascript">
-                                          var loadFile1 = function(event) {
-                                              var output1 = document.getElementById('output1');
-                                              output1.src = URL.createObjectURL(event.target.files[0]);
-                                          };
-                                      </script>
-
+                                      <img src="<?php echo base_url('images/users.png'); ?>" id="output1" class="img-thumbnail" style="width:70%;max-height:70%;">
                                       
                                     </div>
                                   </div>
@@ -76,32 +62,32 @@
                                       <tr>
                                         <td>Nama Usaha</td>
                                         <td>:</td>
-                                        <td><?php echo $rowbid->namausaha ?></td>
+                                        <td>UD Mitra Bumi Perkasa</td>
                                       </tr>
                                       <tr>
                                         <td>NIB Usaha</td>
                                         <td>:</td>
-                                        <td><?php echo $rowbid->nibusaha ?></td>
+                                        <td>4578878</td>
                                       </tr>
                                       <tr>
                                         <td>Nama Pemilik</td>
                                         <td>:</td>
-                                        <td><?php echo $rowbid->namapemilik ?></td>
+                                        <td>Budi Sulistiyo</td>
                                       </tr>
                                       <tr>
                                         <td>NIK Pemilik</td>
                                         <td>:</td>
-                                        <td><?php echo $rowbid->nikpemilik ?></td>
+                                        <td>48785450025001</td>
                                       </tr>
                                       <tr>
                                         <td>Email Pemilik</td>
                                         <td>:</td>
-                                        <td><?php echo $rowbid->emailpemilik ?></td>
+                                        <td>budi@gmail.com</td>
                                       </tr>
                                       <tr>
                                         <td>No Telp Pemilik</td>
                                         <td>:</td>
-                                        <td><?php echo $rowbid->notelppemilik ?></td>
+                                        <td>0812454545</td>
                                       </tr>
                                     </table>
                                   </div>
@@ -131,29 +117,12 @@
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <?php  
-                                        if ($rsbiddetail->num_rows()>0) {
-                                          foreach ($rsbiddetail->result() as $row) {
-                                            if (!empty($row->fotoitem)) {
-                                              $fotoitem = base_url('uploads/itemlelang/'.$row->fotoitem);
-                                            }else{
-                                              $fotoitem = base_url('assets/images/sepedamotor.png');
-                                            }
-                                            echo '
-
-                                                <tr>
-                                                  <td style="text-align: center;"><img src="'.$fotoitem.'" alt="" style="width: 80%; text-center"></td>
-                                                  <td style="text-align: center;">'.$row->tipe.'<br>'.$row->merk.'</td>
-                                                  <td style="text-align: center;">'.$row->nomesin.'<br>'.$row->norangka.'<br>'.$row->nopolisi.'</td>
-                                                  <td style="text-align: right;">'.format_rupiah($row->hargadasar).'</td>
-                                                  <td style="text-align: right;">'.format_rupiah($row->hargabid).'</td>
-                                                </tr>
-                                            ';
-                                          }
-                                        }
-                                      ?>
                                       <tr>
-                                        
+                                        <td style="text-align: center;"><img src="<?php echo base_url('uploads/itemlelang/Honda_Vario_150_eSP.png') ?>" alt="" style="width: 80%;"></td>
+                                        <td style="text-align: center;">Vario 110 eSP CBS<br>Honda</td>
+                                        <td style="text-align: center;">029737267<br>98726561<br>KB 4444</td>
+                                        <td style="text-align: right;">10.000.000</td>
+                                        <td style="text-align: right;">11.000.000</td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -168,16 +137,10 @@
                           <div class="from-group row">
                             <label for="" class="col-md-4 col-form-label">Status Peserta</label>
                             <div class="col-md-4">
-                              <select name="statusbid" id="statusbid" class="form-control">
-                                <?php  
-                                  $selected = '';
-                                  if ($rowbid->statusbid=='Menang') {
-                                    $selected = 'selected="selected"';
-                                  }
-                                ?>
-                                <option value="Menunggu" <?php echo ($rowbid->statusbid=='Menunggu') ? 'selected="selected"' : '' ?>>Menunggu</option>
-                                <option value="Kalah" <?php echo ($rowbid->statusbid=='Kalah') ? 'selected="selected"' : '' ?>>Kalah</option>
-                                <option value="Menang" <?php echo ($rowbid->statusbid=='Menang') ? 'selected="selected"' : '' ?>>Menang</option>
+                              <select name="statusbid" id="statusbid" class="form-control">                                
+                                <option value="Menunggu">Menunggu</option>
+                                <option value="Kalah">Kalah</option>
+                                <option value="Menang">Menang</option>
                               </select>
                             </div>
                             <div class="col-md-4">
