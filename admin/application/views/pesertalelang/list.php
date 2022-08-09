@@ -18,11 +18,6 @@
               <h3 class="mb-0"> Peserta Lelang 
               </h3>
               <div class="d-flex">
-                <!-- <button type="button" class="btn btn-sm bg-white btn-icon-text border">
-                  <i class="mdi mdi-email btn-icon-prepend"></i> Email </button>
-                <button type="button" class="btn btn-sm bg-white btn-icon-text border ml-3">
-                  <i class="mdi mdi-printer btn-icon-prepend"></i> Print </button> -->
-
                 <a href="<?php echo site_url('pesertalelang/tambah') ?>" class="btn btn-sm ml-3 btn-info"><i class="mdi mdi-database-plus btn-icon-prepend"></i> Tambah Data</a>
               </div>
             </div>
@@ -45,10 +40,67 @@
                                 <th style="text-align: center;">NAMA PEMILIK<br>NIK/ JK</th>
                                 <th style="text-align: center;">ALAMAT PEMILIK<br>EMAIL/ NO TELP</th>
                                 <th style="text-align: center;">USERNAME<br>TGL DAFTAR<br>STATUS</th>
-                                <th style="text-align: center; width: 15%;">AKSI</th>
+                                <th style="text-align: center; width: 20%;">AKSI</th>
                               </tr>
                             </thead>
                             <tbody>
+                              <tr>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;"><img src="<?php echo base_url('images/users.png') ?>" alt="" style="width: 80%;"></td>
+                                <td style="text-align: center;">UD Mitra Bumi Perkasa<br>4578878<br>mitra@gmail.com / 05685455</td>
+                                <td style="text-align: center;">Budi Sulistiyo<br>48785450025001/ Laki-laki</td>
+                                <td style="text-align: center;">Jl. Sutrisno<br>budi@gmail.com/ 0812454545</td>
+                                <td style="text-align: center;">budi<br>15-01-2022<br>Aktif</td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('pesertalelang/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('pesertalelang/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="text-align: center;">2</td>
+                                <td style="text-align: center;"><img src="<?php echo base_url('images/users.png') ?>" alt="" style="width: 80%;"></td>
+                                <td style="text-align: center;">Sedawe Utama<br>458787<br>sedawe@gmail.com / 05685454</td>
+                                <td style="text-align: center;">Trihardoyo<br>659898975454001/ Laki-laki</td>
+                                <td style="text-align: center;">Jl. Perjuangan Raya<br>trihardoyo@gmail.com/ 085645452211</td>
+                                <td style="text-align: center;">trihardoyo<br>25-02-2022<br>Aktif</td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('pesertalelang/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('pesertalelang/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="text-align: center;">3</td>
+                                <td style="text-align: center;"><img src="<?php echo base_url('images/users.png') ?>" alt="" style="width: 80%;"></td>
+                                <td style="text-align: center;">CV. Agung Perkasa<br>4578955<br>agungperkasa@gmail.com / 05685455</td>
+                                <td style="text-align: center;">Susi Susanti<br>5658445154001/ Perempuan</td>
+                                <td style="text-align: center;">Jl. Karya Agung<br>susi@gmail.com/ 081345654454</td>
+                                <td style="text-align: center;">susi<br>05-03-2022<br>Aktif</td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('pesertalelang/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('pesertalelang/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
                               
                             </tbody>              
                           </table>
@@ -90,26 +142,7 @@
       $(document).ready(function() {
 
         //defenisi datatable
-        table = $("#table").DataTable({ 
-            "select": true,
-            "processing": true, 
-            "serverSide": true, 
-            "order": [], 
-             "ajax": {
-                "url": "<?php echo site_url('pesertalelang/datatablesource')?>",
-                "type": "POST"
-            },
-            "columnDefs": [
-                            { "targets": [ 0 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 1 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 2 ], "className": "dt-body-center" },
-                            { "targets": [ 3 ], "className": "dt-body-center" },
-                            { "targets": [ 4 ], "className": "dt-body-center" },
-                            { "targets": [ 5 ], "className": "dt-body-center" },
-                            { "targets": [ 6 ], "orderable": false, "className": "dt-body-center" },
-            ],
-     
-        });
+        table = $("#table").DataTable();
 
       }); //end (document).ready
 

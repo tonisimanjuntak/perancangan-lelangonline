@@ -145,32 +145,6 @@
 
       //---------------------------------------------------------> JIKA EDIT DATA
       if ( idbank != "" ) { 
-            $.ajax({
-                type        : 'POST', 
-                url         : '<?php echo site_url("bank/get_edit_data") ?>', 
-                data        : {idbank: idbank}, 
-                dataType    : 'json', 
-                encode      : true
-            })      
-            .done(function(result) {
-              $("#idbank").val(result.idbank);
-              $("#namabank").val(result.namabank);
-              $("#cabang").val(result.cabang);
-              $("#norekening").val(result.norekening);
-              $("#statusaktif").val(result.statusaktif);
-
-              $("#foto").val(result.logobank);
-              $('#file_lama').val(result.logobank);
-
-              if ( result.logobank != '' && result.logobank != null ) {
-                  $("#output1").attr("src","<?php echo(base_url('uploads/bank/')) ?>" + result.logobank);              
-              }else{
-                  $("#output1").attr("src","<?php echo(base_url('images/bank.jpg')) ?>");    
-              }
-
-
-            }); 
-
 
             $("#lbljudul").html("Edit Data Bank");
             $("#lblactive").html("Edit");
@@ -179,6 +153,7 @@
             $("#lbljudul").html("Tambah Data Bank");
             $("#lblactive").html("Tambah");
       }     
+
 
       //----------------------------------------------------------------- > validasi
       $("#form").bootstrapValidator({

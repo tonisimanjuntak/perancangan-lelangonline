@@ -384,7 +384,7 @@ $config['encryption_key'] = 'randomstring';
 |
 */
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_lo_front';
+$config['sess_cookie_name'] = 'ci_plo_front';
 $config['sess_samesite'] = 'Lax';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = NULL;

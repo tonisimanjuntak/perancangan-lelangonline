@@ -6,7 +6,6 @@ class Login extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();      
-        $this->load->model('Login_model'); 
     }
 
     public function keluar()
@@ -31,43 +30,55 @@ class Login extends CI_Controller {
         $username = trim($this->input->post('username'));
         $password = trim($this->input->post('password'));
 
+        $foto = base_url('images/user-icon.png');
 
         if (empty($username) || empty($password)) {            
             $pesan = '<script>swal("Gagal!", "Username atau password tidak boleh kosong.", "info")</script>';
             $this->session->set_flashdata('pesan', $pesan);
             redirect('Login');
         }else{
-            $kirim = $this->Login_model->ceklogin($username, md5($password));
-            if ($kirim->num_rows() > 0) {
-                $result = $kirim->row();
 
-                if (!empty($result->foto)) {
-                    $foto = base_url('uploads/pengguna/'.$result->foto);
-                }else{
-                    $foto = base_url('images/users.png');
-                }
-
-                
+            if (strtoupper($username)=='ADMIN') {
                 $data = array(
-                    'idpengguna' => $result->idpengguna,
-                    'namapengguna' => $result->namapengguna,
-                    'jeniskelamin' => $result->jeniskelamin,
-                    'alamat' => $result->alamat,
-                    'email' => $result->email,
-                    'notelp' => $result->notelp,
-                    'username' => $result->username,
-                    'level' => $result->level,
-                    'statusaktif' => $result->statusaktif,
+                    'idpengguna' => '001',
+                    'namapengguna' => 'Admin',
+                    'jeniskelamin' => 'Laki-laki',
+                    'alamat' => '-',
+                    'email' => '-',
+                    'notelp' => '-',
+                    'username' => $username,
+                    'level' => 'Admin',
+                    'statusaktif' => 'Aktif',
                     'foto' => $foto,
                 );
                                 
                 $this->session->set_userdata( $data );  
                 redirect( site_url() );
-            }else{
-                $pesan = '<script>swal("Gagal!", "Kombinasi username dan password anda salah!", "error")</script>';
-	            $this->session->set_flashdata('pesan', $pesan);
-	            redirect('Login');
             }
+
+            if (strtoupper($username)=='PIMPINAN') {
+
+                $data = array(
+                    'idpengguna' => '002',
+                    'namapengguna' => 'Admin',
+                    'jeniskelamin' => 'Laki-laki',
+                    'alamat' => '-',
+                    'email' => '-',
+                    'notelp' => '-',
+                    'username' => $username,
+                    'level' => 'Admin',
+                    'statusaktif' => 'Aktif',
+                    'foto' => $foto,
+                );
+                                
+                $this->session->set_userdata( $data );  
+                redirect( site_url() );
+            }
+            
+
+            // $pesan = '<script>swal("Gagal!", "Kombinasi username dan password anda salah!", "error")</script>';
+            // $this->session->set_flashdata('pesan', $pesan);
+            // redirect('Login');
 
         }
     }

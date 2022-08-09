@@ -218,39 +218,7 @@
 
       //---------------------------------------------------------> JIKA EDIT DATA
       if ( idpesertalelang != "" ) { 
-            $.ajax({
-                type        : 'POST', 
-                url         : '<?php echo site_url("pesertalelang/get_edit_data") ?>', 
-                data        : {idpesertalelang: idpesertalelang}, 
-                dataType    : 'json', 
-                encode      : true
-            })      
-            .done(function(result) {
-              $("#idpesertalelang").val(result.idpesertalelang);
-              $("#namausaha").val(result.namausaha);
-              $("#nibusaha").val(result.nibusaha);
-              $("#emailusaha").val(result.emailusaha);
-              $("#notelpusaha").val(result.notelpusaha);
-              $("#namapemilik").val(result.namapemilik);
-              $("#nikpemilik").val(result.nikpemilik);
-              $("#jeniskelaminpemilik").val(result.jeniskelaminpemilik);
-              $("#emailpemilik").val(result.emailpemilik);
-              $("#notelppemilik").val(result.notelppemilik);
-              $("#alamatpemilik").val(result.alamatpemilik);
-              $("#statusaktif").val(result.statusaktif);
-              
-
-              $("#foto").val(result.foto);
-              $('#file_lama').val(result.foto);
-
-              if ( result.foto != '' && result.foto != null ) {
-                  $("#output1").attr("src","<?php echo(base_url('uploads/pesertalelang/')) ?>" + result.foto);              
-              }else{
-                  $("#output1").attr("src","<?php echo(base_url('images/users.png')) ?>");    
-              }
-
-
-            }); 
+            
 
 
             $("#lbljudul").html("Edit Data Peserta Lelang");

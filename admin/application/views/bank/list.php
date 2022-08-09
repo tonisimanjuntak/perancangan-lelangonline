@@ -39,11 +39,68 @@
                                 <th style="text-align: center;">NAMA BANK<br>CABANG</th>
                                 <th style="text-align: center;">NO REKENING</th>
                                 <th style="text-align: center;">STATUS</th>
-                                <th style="text-align: center; width: 15%;">AKSI</th>
+                                <th style="text-align: center; width: 20%;">AKSI</th>
                               </tr>
                             </thead>
                             <tbody>
-                              
+
+                              <tr class="" style="">
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;"><img src="<?php echo base_url('uploads/bank/2560px-BANK_BRI_logo_svg.png') ?>" alt="" style="width:80%;"></td>
+                                <td style="text-align: center;">BANK RAKYAT INDONESIA<br>PONTIANAK</td>
+                                <td style="text-align: center;">95864587</td>
+                                <td style="text-align: center;">AKTIF</td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('bank/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('bank/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>                                  
+                                </td>
+                              </tr>
+                              <tr class="" style="">
+                                <td style="text-align: center;">2</td>
+                                <td style="text-align: center;"><img src="<?php echo base_url('uploads/bank/2560px-Bank_Central_Asia_svg.png') ?>" alt="" style="width:80%;"></td>
+                                <td style="text-align: center;">BANK CENTRAL ASIA<br>PONTIANAK</td>
+                                <td style="text-align: center;">454684547</td>
+                                <td style="text-align: center;">AKTIF</td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('bank/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('bank/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>  
+                                  
+                                </td>
+                              </tr>
+                              <tr class="" style="">
+                                <td style="text-align: center;">3</td>
+                                <td style="text-align: center;"><img src="<?php echo base_url('uploads/bank/Bank_Mandiri_logo_2016_svg.png') ?>" alt="" style="width:80%;"></td>
+                                <td style="text-align: center;">BANK MANDIRI TBK<br>PONTIANAK</td>
+                                <td style="text-align: center;">5684852</td>
+                                <td style="text-align: center;">AKTIF</td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('bank/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('bank/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>  
+                                  
+                                </td>
+                              </tr>
+
                             </tbody>              
                           </table>
                         </div>
@@ -84,25 +141,7 @@
       $(document).ready(function() {
 
         //defenisi datatable
-        table = $("#table").DataTable({ 
-            "select": true,
-            "processing": true, 
-            "serverSide": true, 
-            "order": [], 
-             "ajax": {
-                "url": "<?php echo site_url('bank/datatablesource')?>",
-                "type": "POST"
-            },
-            "columnDefs": [
-                            { "targets": [ 0 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 1 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 2 ], "className": "dt-body-center" },
-                            { "targets": [ 3 ], "className": "dt-body-center" },
-                            { "targets": [ 4 ], "className": "dt-body-center" },
-                            { "targets": [ 5 ], "orderable": false, "className": "dt-body-center" },
-            ],
-     
-        });
+        table = $("#table").DataTable();
 
       }); //end (document).ready
 

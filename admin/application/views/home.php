@@ -40,8 +40,8 @@
                                   <div class="color-card">
                                     <p class="mb-0 color-card-head">Jumlah Lelang</p>
                                     <?php  
-                                      $j11 = $this->db->query("select count(*) as j11 from paket_jadwal")->row()->j11;
-                                      $j12 = $this->db->query("select count(*) as j12 from paket_jadwal where month(tgljammulai)='".date('m')."'")->row()->j12;
+                                      $j11 = 3;
+                                      $j12 = 1;
                                     ?>
                                     <h2 class="text-white"> <?php echo $j11 ?>
                                     </h2>
@@ -59,7 +59,7 @@
                                   <div class="color-card">
                                     <p class="mb-0 color-card-head">Jumlah Peserta</p>
                                     <?php  
-                                      $j11 = $this->db->query("select count(*) as j11 from peserta_lelang")->row()->j11;
+                                      $j11 = 3;
                                     ?>
                                     <h2 class="text-white"> <?php echo $j11 ?><span class="h5"></span>
                                     </h2>
@@ -77,8 +77,8 @@
                                   <div class="color-card">
                                     <p class="mb-0 color-card-head">Jumlah Bid</p>
                                     <?php  
-                                      $j11 = $this->db->query("select count(*) as j11 from v_bid")->row()->j11;
-                                      $j12 = $this->db->query("select count(*) as j12 from v_bid where month(tglbid)='".date('m')."'")->row()->j12;
+                                      $j11 = 3;
+                                      $j12 = 2;
                                     ?>
                                     <h2 class="text-white"> <?php echo $j11 ?><span class="h5"></span>
                                     </h2>
@@ -96,8 +96,8 @@
                                   <div class="color-card">
                                     <p class="mb-0 color-card-head">Jumlah Pembayaran</p>
                                     <?php  
-                                      $j11 = $this->db->query("select count(*) as j11 from v_pembayaran")->row()->j11;
-                                      $j12 = $this->db->query("select count(*) as j12 from v_pembayaran where month(tglpembayaran)='".date('m')."'")->row()->j12;
+                                      $j11 = 1;
+                                      $j12 = 0;
                                     ?>
                                     <h2 class="text-white"> <?php echo $j11 ?><span class="h5"></span>
                                     </h2>

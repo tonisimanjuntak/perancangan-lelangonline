@@ -234,41 +234,6 @@
 
       //---------------------------------------------------------> JIKA EDIT DATA
       if ( iditem != "" ) { 
-            $.ajax({
-                type        : 'POST', 
-                url         : '<?php echo site_url("itemlelang/get_edit_data") ?>', 
-                data        : {iditem: iditem}, 
-                dataType    : 'json', 
-                encode      : true
-            })      
-            .done(function(result) {
-              $("#iditem").val(result.iditem);
-              $("#merk").val(result.merk);
-              $("#tipe").val(result.tipe);
-              $("#thnpembuatan").val(result.thnpembuatan);
-              $("#norangka").val(result.norangka);
-              $("#nomesin").val(result.nomesin);
-              $("#nobpkb").val(result.nobpkb);
-              $("#nopolisi").val(result.nopolisi);
-              $("#isisilinder").val(result.isisilinder);
-              $("#warna").val(result.warna);
-              $("#grade").val(result.grade);
-              $("#harga").val(result.harga);
-
-
-              $("#foto").val(result.fotoitem);
-              $('#file_lama').val(result.fotoitem);
-
-              if ( result.fotoitem != '' && result.fotoitem != null ) {
-                  $("#output1").attr("src","<?php echo(base_url('uploads/itemlelang/')) ?>" + result.fotoitem);              
-              }else{
-                  $("#output1").attr("src","<?php echo(base_url('images/sepedamotor.png')) ?>");    
-              }
-
-
-            }); 
-
-
             $("#lbljudul").html("Edit Data Item Lelang");
             $("#lblactive").html("Edit");
 
@@ -285,73 +250,80 @@
           validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
-          namapengguna: {
+          merk: {
             validators:{
               notEmpty: {
-                  message: "nama pengguna tidak boleh kosong"
+                  message: "merk tidak boleh kosong"
               },
             }
           },
-          jeniskelamin: {
+          tipe: {
             validators:{
               notEmpty: {
-                  message: "jenis kelamin tidak boleh kosong"
+                  message: "tipe tidak boleh kosong"
               },
             }
           },
-          alamat: {
+          thnpembuatan: {
             validators:{
               notEmpty: {
-                  message: "alamat tidak boleh kosong"
+                  message: "tahun pembuatan boleh kosong"
               },
             }
           },
-          email: {
+          norangka: {
             validators:{
               notEmpty: {
-                  message: "email tidak boleh kosong"
+                  message: "nomor rangka tidak boleh kosong"
               },
             }
           },
-          notelp: {
+          nomesin: {
             validators:{
               notEmpty: {
-                  message: "nomor telepon tidak boleh kosong"
+                  message: "nomor mesin tidak boleh kosong"
               },
             }
           },
-          level: {
+          nobpkb: {
             validators:{
               notEmpty: {
-                  message: "level tidak boleh kosong"
+                  message: "nomor bpkb tidak boleh kosong"
               },
             }
           },
-          username: {
+          nopolisi: {
             validators:{
               notEmpty: {
-                  message: "username tidak boleh kosong"
+                  message: "nomor polisi tidak boleh kosong"
               },
             }
           },
-          password: {
+          isisilinder: {
             validators:{
               notEmpty: {
-                  message: "password tidak boleh kosong"
+                  message: "isi silinder tidak boleh kosong"
               },
             }
           },
-          password2: {
+          warna: {
             validators:{
               notEmpty: {
-                  message: "ulangi password tidak boleh kosong"
+                  message: "warna tidak boleh kosong"
               },
             }
           },   
-          statusaktif: {
+          grade: {
             validators:{
               notEmpty: {
-                  message: "status aktif tidak boleh kosong"
+                  message: "grade tidak boleh kosong"
+              },
+            }
+          },   
+          harga: {
+            validators:{
+              notEmpty: {
+                  message: "harga tidak boleh kosong"
               },
             }
           },   

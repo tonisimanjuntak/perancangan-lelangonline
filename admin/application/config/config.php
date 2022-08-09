@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://lelangonlinetrial.com/admin';
+$config['base_url'] = 'http://localhost:6060/lelangonline/admin/';
 
 /*
 |--------------------------------------------------------------------------
@@ -384,7 +384,7 @@ $config['encryption_key'] = 'randomstring';
 |
 */
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_lo_admin';
+$config['sess_cookie_name'] = 'ci_plo_admin';
 $config['sess_samesite'] = 'Lax';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = NULL;

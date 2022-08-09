@@ -18,7 +18,7 @@
               <h3 class="mb-0"> Item Lelang
               </h3>
               <div class="d-flex">
-                  <a href="<?php echo site_url('itemlelang/cetak') ?>" class="btn btn-sm bg-white btn-icon-text border ml-3" target="_blank"><i class="mdi mdi-printer btn-icon-prepend"></i> Cetak </a>
+                  <!-- <a href="<?php echo site_url('itemlelang/cetak') ?>" class="btn btn-sm bg-white btn-icon-text border ml-3" target="_blank"><i class="mdi mdi-printer btn-icon-prepend"></i> Cetak </a> -->
                 <a href="<?php echo site_url('itemlelang/tambah') ?>" class="btn btn-sm ml-3 btn-info"><i class="mdi mdi-database-plus btn-icon-prepend"></i> Tambah Data</a>
               </div>
             </div>
@@ -46,7 +46,66 @@
                               </tr>
                             </thead>
                             <tbody>
-                              
+                              <tr>
+                                <td style="text-align: center;">1</th>
+                                <td style="text-align: center;"><img src="<?php echo base_url('uploads/itemlelang/Honda_Vario_150_eSP.png') ?>" alt="" style="width: 80%;"></th>
+                                <td style="text-align: center;">Vario 110 eSP CBS ISS<br>Honda<br>2019</th>
+                                <td style="text-align: center;">Merah<br>110</th>
+                                <td style="text-align: center;">029737267<br>98726561<br>24678989<br>KB 4444</th>
+                                <td style="text-align: center;">10,000,000<br>B</th>
+                                <td style="text-align: center;"><span class="badge badge-info">Belum Terjual</span></th>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('itemlelang/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('itemlelang/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </th>
+                              </tr>
+                              <tr>
+                                <td style="text-align: center;">2</th>
+                                <td style="text-align: center;"><img src="<?php echo base_url('uploads/itemlelang/Honda_Spacy_Fi.png') ?>" alt="" style="width: 80%;"></th>
+                                <td style="text-align: center;">Honda Spacy Fi<br>Honda<br>2019</th>
+                                <td style="text-align: center;">Hitam<br>135</th>
+                                <td style="text-align: center;">454656466<br>121354545<br>23315454<br>KB 5454</th>
+                                <td style="text-align: center;">12,000,000<br>B</th>
+                                <td style="text-align: center;"><span class="badge badge-info">Belum Terjual</span></th>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('itemlelang/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('itemlelang/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </th>
+                              </tr>
+                              <tr>
+                                <td style="text-align: center;">3</th>
+                                <td style="text-align: center;"><img src="<?php echo base_url('uploads/itemlelang/PCX_150.png') ?>" alt="" style="width: 80%;"></th>
+                                <td style="text-align: center;">PCX 150<br>Honda<br>2019</th>
+                                <td style="text-align: center;">Merah<br>15</th>
+                                <td style="text-align: center;">45645465<br>12155454<br>21212121<br>KB 4578</th>
+                                <td style="text-align: center;">11,000,000<br>B</th>
+                                <td style="text-align: center;"><span class="badge badge-danger">Terjual</span></th>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('itemlelang/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('itemlelang/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </th>
+                              </tr>
                             </tbody>              
                           </table>
                         </div>
@@ -87,27 +146,7 @@
       $(document).ready(function() {
 
         //defenisi datatable
-        table = $("#table").DataTable({ 
-            "select": true,
-            "processing": true, 
-            "serverSide": true, 
-            "order": [], 
-             "ajax": {
-                "url": "<?php echo site_url('itemlelang/datatablesource')?>",
-                "type": "POST"
-            },
-            "columnDefs": [
-                            { "targets": [ 0 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 1 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 2 ], "className": "dt-body-center" },
-                            { "targets": [ 3 ], "className": "dt-body-center" },
-                            { "targets": [ 4 ], "className": "dt-body-center" },
-                            { "targets": [ 5 ], "className": "dt-body-center" },
-                            { "targets": [ 6 ], "className": "dt-body-center" },
-                            { "targets": [ 7 ], "orderable": false, "className": "dt-body-center" },
-            ],
-     
-        });
+        table = $("#table").DataTable();
 
       }); //end (document).ready
 
