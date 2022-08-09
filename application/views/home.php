@@ -118,78 +118,103 @@
 
         <div class="row g-4 justify-content-center">
           <?php  
-            $rsjadwal = $this->db->query("select * from paket_jadwal order by tglinsert desc");
-            if ($rsjadwal->num_rows()>0) {
-              $no=1;
-              foreach ($rsjadwal->result() as $rowjadwal) {
                 echo '
                           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="height: 400px;">
-                            <div class="service-item bg-light overflow-hidden h-100">';
-
-                
-                echo '
-                              
-
-                              <div id="carouselExampleInterval'.$rowjadwal->idpaket.'" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">';
-
-                $rsjadwaldetail = $this->db->query("select * from v_paket_detail where idpaket='".$rowjadwal->idpaket."'");
-                if ($rsjadwaldetail->num_rows()>0) {
-                    $noActive = 1;
-                  foreach ($rsjadwaldetail->result() as $rowdetail) {
-                    if (!empty($rowdetail->fotoitem)) {
-                         $fotoitem = base_url('admin/uploads/itemlelang/'.$rowdetail->fotoitem);
-                       } else{
-                         $fotoitem = base_url('admin/images/sepedamotor.png');
-                       }  
-                       $active = "";
-                       if ($noActive==1) {
-                         $active = "active";
-                       }
-                        echo '
-                                          <div class="carousel-item '.$active.'" data-bs-interval="10000">
-                                            <img src="'.$fotoitem.'" class="d-block w-100" alt="..." style="height: 200px;">
-                                          </div>';
-                    $noActive++;
-                  }
-                }
-
-                if (strlen($rowjadwal->deskripsi)<=100) {
-                  $deskripsi = $rowjadwal->deskripsi;
-                }else{
-                  $deskripsi = substr($rowjadwal->deskripsi, 0, 100).' ...' ;
-                }
-                echo '
+                            <div class="service-item bg-light overflow-hidden h-100">
+                              <div id="carouselExampleInterval01" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active" data-bs-interval="10000">
+                                    <img src="'.base_url('admin/uploads/itemlelang/PCX_150.png').'" class="d-block w-100" alt="..." style="height: 200px;">
+                                  </div>                                  
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval'.$rowjadwal->idpaket.'" data-bs-slide="prev">
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval01" data-bs-slide="prev">
                                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                   <span class="visually-hidden">Previous</span>
                                 </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval'.$rowjadwal->idpaket.'" data-bs-slide="next">
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval01" data-bs-slide="next">
                                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                   <span class="visually-hidden">Next</span>
                                 </button>
-                              </div>';
-
-                if (!empty($rowjadwal->idbidpemenang)) {
-                   echo '<img src="'.base_url('images/terjual3.jpg').'" class="img-terjual" alt="...">';
-                }
-
-                echo '
+                              </div>
                               <div class="service-text position-relative text-center h-100 p-4">
-                                <h5 class="mb-3">'.$rowjadwal->namapaket.'</h5>
+                                <h5 class="mb-3">PROMO HAJI RAYA</h5>
                                 <p>
-                                  Tanggal Mulai: '.tgljamindonesia($rowjadwal->tgljammulai).' <br>s/d '.tgljamindonesia($rowjadwal->tgljamselesai).'
+                                  Tanggal Mulai: 01-06-2022 <br>s/d 31-08-2022
                                 </p>
-                                <a class="small" href="'.site_url('paketlelang/detail/'.$this->encrypt->encode($rowjadwal->idpaket)).'">Selengkapnya<i class="fa fa-arrow-right ms-3"></i
+                                <a class="small" href="'.site_url('paketlelang/detail/1').'">Selengkapnya<i class="fa fa-arrow-right ms-3"></i
                                 ></a>
                               </div>
                             </div>
                           </div>
-                ';
-                $no++;
-              }
-            }
+                            ';
+
+
+                  echo '
+                          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="height: 400px;">
+                            <div class="service-item bg-light overflow-hidden h-100">
+                              <div id="carouselExampleInterval02" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active" data-bs-interval="10000">
+                                    <img src="'.base_url('admin/uploads/itemlelang/Honda_Vario_125_eSP.png').'" class="d-block w-100" alt="..." style="height: 200px;">
+                                  </div>
+                                  <div class="carousel-item" data-bs-interval="10000">
+                                    <img src="'.base_url('admin/uploads/itemlelang/HHonda_PCX_1501.png').'" class="d-block w-100" alt="..." style="height: 200px;">
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval02" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval02" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
+                              <img src="'.base_url('images/terjual3.jpg').'" class="img-terjual" alt="...">
+                              <div class="service-text position-relative text-center h-100 p-4">
+                                <h5 class="mb-3">PAKET IDUL ADHA</h5>
+                                <p>
+                                  Tanggal Mulai: 01-04-2022 <br>s/d 30-06-2022
+                                </p>
+                                <a class="small" href="'.site_url('paketlelang/detail/1').'">Selengkapnya<i class="fa fa-arrow-right ms-3"></i
+                                ></a>
+                              </div>
+                            </div>
+                          </div>
+                            ';
+
+                    echo '
+                          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="height: 400px;">
+                            <div class="service-item bg-light overflow-hidden h-100">
+                              <div id="carouselExampleInterval03" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active" data-bs-interval="10000">
+                                    <img src="'.base_url('admin/uploads/itemlelang/Honda_SH150i1.png').'" class="d-block w-100" alt="..." style="height: 200px;">
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval03" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval03" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
+                              <div class="service-text position-relative text-center h-100 p-4">
+                                <h5 class="mb-3">Paket Juni 2022</h5>
+                                <p>
+                                  Tanggal Mulai: 01-06-2022 <br>s/d 17-08-2022
+                                </p>
+                                <a class="small" href="'.site_url('paketlelang/detail/1').'">Selengkapnya<i class="fa fa-arrow-right ms-3"></i
+                                ></a>
+                              </div>
+                            </div>
+                          </div>
+                            ';
+
+
+
           ?>
         </div>
 
