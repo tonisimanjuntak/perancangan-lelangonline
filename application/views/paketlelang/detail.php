@@ -28,7 +28,7 @@
             <div class="border-start border-5 border-primary ps-4">
               <h6 class="text-body text-uppercase mb-2">Detail Paket Lelang</h6>
               <h1 class="display-6 mb-0">
-                <?php echo $rowpaket->namapaket ?>
+                PROMO HAJI RAYA
               </h1>
             </div>
           </div>
@@ -42,22 +42,14 @@
                     
                     <div class="col-md-8 mb-5">
                       <h5 class="text-muted">Deskripsi Jadwal:</h5>
-                      <?php echo $rowpaket->deskripsi ?>
+                      Murah Meriah Honda Scoopy
                     </div>
                     <div class="col-md-4 text-center" style="font-size: 26px; font-weight: bold;">
                       <?php  
                         $tglsekarang = date('Y-m-d H:i');
-                        $tgljammulai = date('Y-m-d H:i', strtotime($rowpaket->tgljammulai));
-                        $tgljamselesai = date('Y-m-d H:i', strtotime($rowpaket->tgljamselesai));
-                        if (!empty($rowpaket->idbidpemenang)) {
-                          echo '<i class="text-danger">SUDAH TERJUAL</i>';
-                        }elseif (  $tglsekarang < $tgljammulai ) {
-                          echo '<i class="text-danger">BELUM DIMULAI</i>';
-                        }elseif ( $tglsekarang > $tgljamselesai ) {
-                          echo '<i class="text-danger">SUDAH BERLALU</i>';
-                        }else{
-                          echo '<i class="text-success">SEDANG BERLANGSUNG</i>';
-                        }
+                        $tgljammulai = '01-06-2022';
+                        $tgljamselesai = '31-08-2022';
+                        echo '<i class="text-success">SEDANG BERLANGSUNG</i>';
                       ?>
                       
                     </div>
@@ -69,17 +61,17 @@
                             <tr>
                               <th>Id Jadwal Lelang</th>
                               <th>:</th>
-                              <th><?php echo $rowpaket->idpaket ?></th>
+                              <th>1121211</th>
                             </tr>
                             <tr>
                               <th>Tgl Mulai Lelang</th>
                               <th>:</th>
-                              <th><?php echo date('d-m-Y H:i', strtotime($rowpaket->tgljammulai))  ?></th>
+                              <th>01-06-2022</th>
                             </tr>
                             <tr>
                               <th>Tgl Berakhir Lelang</th>
                               <th>:</th>
-                              <th><?php echo date('d-m-Y H:i', strtotime($rowpaket->tgljammulai))  ?></th>
+                              <th>31-08-2022</th>
                             </tr>
                           </table>
 
@@ -96,17 +88,17 @@
                             <tr>
                               <th>Total Harga Dasar</th>
                               <th>:</th>
-                              <th><?php echo format_rupiah($rowpaket->totalhargadasarpaket) ?></th>
+                              <th>Rp. 10.0000.000</th>
                             </tr>
                             <tr>
                               <th>Status Paket</th>
                               <th>:</th>
-                              <th><?php echo $rowpaket->statuspaket ?></th>
+                              <th>Belum Terjual</th>
                             </tr>
                             <tr>
                               <th>Pemenang Lelang</th>
                               <th>:</th>
-                              <th><?php echo $rowpaket->namausaha ?></th>
+                              <th>-</th>
                             </tr>
                           </table>
 
@@ -120,93 +112,83 @@
                           <div class="row">
                             <form action="<?php echo site_url('paketlelang/simpan') ?>" id="form" method="post">
                               
-                              <input type="hidden" id="idpaket" name="idpaket" value="<?php echo $rowpaket->idpaket ?>">
+                              <input type="hidden" id="idpaket" name="idpaket" value="12122112">
 
                               <div class="col-12 text-center">
                                 <h5 class="text-muted">Detail Item Yang di Lelang</h5>
                                 <p>Silahkan masukkan nilai penawaran anda pada item-item yang di lelang dibawah ini.</p>
                                 
                               </div>
-                              <?php  
-                                if ($rspaketdetail->num_rows()>0) {
-                                  $no=1;
-                                  foreach ($rspaketdetail->result() as $rowdetail) { 
-                                    if (!empty($rowdetail->fotoitem)) {
-                                       $fotoitem = base_url('admin/uploads/itemlelang/'.$rowdetail->fotoitem);
-                                     } else{
-                                       $fotoitem = base_url('admin/images/sepedamotor.png');
-                                     } 
-                                    ?>
                               
                                     <div class="col-12 mb-3">
                                       <div class="card shadow">
                                         <div class="card-body">
                                           <div class="row p-3">
                                             <div class="col-12 mb-3" style="font-weight: bold;">
-                                              Produk Ke - <?php echo $no ?>
+                                              Produk Ke - 1
                                             </div>
                                             <div class="col-md-3">
-                                              <img src="<?php echo $fotoitem ?>" alt="" style="width: 80%;">
+                                              <img src="<?php echo base_url('admin/uploads/itemlelang/Honda_Vario_150_eSP.png') ?>" alt="" style="width: 80%;">
                                             </div>
                                             <div class="col-md-6">
                                               <table class="table">
                                                 <tr>
                                                   <td>Type/ Merek</td>
                                                   <td>:</td>
-                                                  <td><?php echo $rowdetail->tipe.' / '.$rowdetail->merk ?></td>
+                                                  <td>Vario 110 eSP CBS / Honda</td>
                                                 </tr>
                                                 <tr>
                                                   <td>Isi Silinder</td>
                                                   <td>:</td>
-                                                  <td><?php echo $rowdetail->isisilinder ?></td>
+                                                  <td>110</td>
                                                 </tr>
                                                 <tr>
                                                   <td>Warna</td>
                                                   <td>:</td>
-                                                  <td><?php echo $rowdetail->warna ?></td>
+                                                  <td>Merah</td>
                                                 </tr>
                                                 <tr>
                                                   <td>Tahun Pembuatan</td>
                                                   <td>:</td>
-                                                  <td><?php echo $rowdetail->thnpembuatan ?></td>
+                                                  <td>2019</td>
                                                 </tr>
                                                 <tr>
                                                   <td>No Polisi</td>
                                                   <td>:</td>
-                                                  <td><?php echo $rowdetail->nopolisi ?></td>
+                                                  <td>KB 4444</td>
                                                 </tr>
                                                 <tr>
                                                   <td>No Mesin</td>
                                                   <td>:</td>
-                                                  <td><?php echo $rowdetail->nomesin ?></td>
+                                                  <td>029737267</td>
                                                 </tr>
                                                 <tr>
                                                   <td>No Rangka</td>
                                                   <td>:</td>
-                                                  <td><?php echo $rowdetail->norangka ?></td>
+                                                  <td>98726561</td>
                                                 </tr>
                                                 <tr>
                                                   <td>No BPKB</td>
                                                   <td>:</td>
 
-                                                  <td><?php echo $rowdetail->nobpkb ?></td>
+                                                  <td>24678989</td>
                                                 </tr>
                                                 <tr>
                                                   <td>Grade</td>
                                                   <td>:</td>
 
-                                                  <td><?php echo $rowdetail->grade ?></td>
+                                                  <td>B</td>
                                                 </tr>                                        
                                               </table>
                                             </div>
                                             <div class="col-md-3">
                                               <div class="form-group row">
                                                 <div class="col-12 text-center">
-                                                  <h5>Harga Dasar : Rp. <?php echo format_rupiah($rowdetail->harga) ?></h5>
+                                                  <h5>Harga Dasar : Rp. 10,000,000</h5>
                                                 </div>
                                                 <div class="col-12 text-center mt-5 bg-primary p-3 text-white">
                                                   <P>MASUKKAN HARGA PENAWARAN ANDA</P>
-                                                  <input type="text" class="form-control rupiah" name="harga[]" data-iditem="<?php echo $rowdetail->iditem ?>" data-hargadasar="<?php echo $rowdetail->hargadasar ?>">
+                                                  <input type="text" class="form-control rupiah" name="harga[]">
                                                 </div>
                                               </div>
                                             </div>
@@ -218,21 +200,8 @@
                                     </div>
 
 
-                              
-                              <?php
-                                  $no++;
-                                  }
-                                }
-                              ?>
-
                               <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
-                                <?php  
-                                  if ($sedangberlangsung) {
-                                    echo '
-                                        <button type="submit" class="btn btn-primary py-3 px-5 float-end">Ajukan Penawaran</button>
-                                    ';
-                                  }
-                                ?>
+                                <button type="submit" class="btn btn-primary py-3 px-5 float-end">Ajukan Penawaran</button>
                                 <a class="btn btn-default py-3 px-5 float-end" href="<?php echo site_url('paketlelang') ?>">Kembali</a>
                               </div>
 
@@ -263,71 +232,12 @@
     <?php $this->load->view('footer'); ?>    
 
     <script>
-      var sedangberlangsung = "<?php echo $sedangberlangsung ?>";
-      var jumlahdetail = "<?php echo $rspaketdetail->num_rows() ?>";
-
+      
       $('#form').submit(function(e) {
         e.preventDefault();
-        if (!sedangberlangsung) {
-          return;
-        }
-        
-        var idpaket = $('#idpaket').val();
-        
-        $.ajax({
-          url: '<?php echo site_url('paketlelang/cekbid') ?>',
-          type: 'GET',
-          dataType: 'json',
-          data: {'idpaket': idpaket},
-        })
-        .done(function(result) {
-          if (result.sudahada) {
-
-            swal({
-              title: "Ingin Bid Ulang?",
-              text: "Lelang ini sudah anda bid sebelumnya, apakah anda ingin menggunakan bid ini?",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-            })
-            .then((willDelete) => {
-              if (willDelete) {
-                insertbid(idpaket);
-              } 
-            });
-
-          }else{
-            insertbid(idpaket);
-          }
-        })
-        .fail(function() {
-          console.log("error");
-        });
-        
-        
-        // console.log(arrText);
-      });
-
-
-      function insertbid(idpaket)
-      {
-        var arrText = new Array();
-        var i = 1;
-        $('input[type=text]').each(function(){
-            var item = [$(this).attr('data-iditem'), $(this).attr('data-hargadasar'), $(this).val() ];
-            if ( parseInt( untitik($(this).attr('data-hargadasar')) ) > parseInt(untitik($(this).val())) ) {
-              swal("Harga Bid Dibawah Harga Dasar","Harga Bid tidak boleh dibawah harga dasar.", "error");
-              return;
-            }else{
-              arrText.push( item );
-              
-            }
-
-            if (parseInt(i)==parseInt(jumlahdetail)) {
-              
-              var formData = {
-                        "idpaket"       : idpaket,
-                        "itemdetail"       : arrText,
+        var formData = {
+                        "idpaket"       : '122121',
+                        "itemdetail"       : '',
                     };
 
                     $.ajax({
@@ -349,15 +259,10 @@
                       .fail(function(){
                           alert("Gagal script simpan data!");
                       });
-            }
-            i++;
+        
+        // console.log(arrText);
+      });
 
-        });
-
-
-
-
-      }
 
     </script>
   </body>

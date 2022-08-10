@@ -49,7 +49,44 @@
                               </tr>
                             </thead>
                             <tbody>
-                              
+                              <tr>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;"><img src="<?php echo base_url('images/users.png') ?>" alt="" style="width: 80%;"></td>
+                                <td style="text-align: center;">Admin<br>admin</td>
+                                <td style="text-align: center;">Laki-laki</td>
+                                <td style="text-align: center;">081565454545<br>admin@gmail.com</td>
+                                <td style="text-align: center;">Admin<br>Aktif</td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('pengguna/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('pengguna/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: center;"><img src="<?php echo base_url('images/users.png') ?>" alt="" style="width: 80%;"></td>
+                                <td style="text-align: center;">Pimpinan<br>pimpinan</td>
+                                <td style="text-align: center;">Laki-laki</td>
+                                <td style="text-align: center;">081245456555<br>pimpinan@gmail.com</td>
+                                <td style="text-align: center;">Pimpinan<br>Aktif</td>
+                                <td style="text-align: center;">
+                                  <div class="btn-group">  
+                                    <a href="<?php echo site_url('pengguna/edit/0') ?>" class="btn btn-sm btn-warning btn-circle"><i class="fa fa-edit"></i> Edit</a>
+                                      <button type="button" class="btn bg-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?php echo site_url('pengguna/delete/0') ?>" id="hapus">Hapus</a>
+                                      </div>
+                                  </div>
+                                </td>
+                              </tr>
                             </tbody>              
                           </table>
                         </div>
@@ -90,26 +127,7 @@
       $(document).ready(function() {
 
         //defenisi datatable
-        table = $("#table").DataTable({ 
-            "select": true,
-            "processing": true, 
-            "serverSide": true, 
-            "order": [], 
-             "ajax": {
-                "url": "<?php echo site_url('pengguna/datatablesource')?>",
-                "type": "POST"
-            },
-            "columnDefs": [
-                            { "targets": [ 0 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 1 ], "orderable": false, "className": "dt-body-center" },
-                            { "targets": [ 2 ], "className": "dt-body-center" },
-                            { "targets": [ 3 ], "className": "dt-body-center" },
-                            { "targets": [ 4 ], "className": "dt-body-center" },
-                            { "targets": [ 5 ], "className": "dt-body-center" },
-                            { "targets": [ 6 ], "orderable": false, "className": "dt-body-center" },
-            ],
-     
-        });
+        table = $("#table").DataTable();
 
       }); //end (document).ready
 

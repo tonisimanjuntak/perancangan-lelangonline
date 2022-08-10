@@ -39,7 +39,7 @@ public function __construct()
     {
         $pesan = '<script>swal("Berhasil!", "Data berhasil disimpan!", "success")</script>';
         $this->session->set_flashdata('pesan', $pesan);
-        redirect( site_url() );   
+        redirect( site_url('login') );   
     }
 
 

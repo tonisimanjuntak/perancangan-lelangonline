@@ -59,46 +59,19 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <?php  
-                              if ($rspembayaran->num_rows()>0) {
-                                $no=1;
-                                foreach ($rspembayaran->result() as $row) {
 
-                                  if ($row->statuspembayaran=='Sudah Diterima') {
-                                      $statuspembayaran = '<a href="'.site_url('pembayaran/cetakbukti/'.$this->encrypt->encode($row->idpembayaran)).'" class="btn btn-success btn-sm" target="_blank"><i class="fa fa-print"></i> '.$row->statuspembayaran.'</a>';
-                                  }elseif($row->statuspembayaran=='Ditolak'){
-                                      $statuspembayaran = '<span class="badge bg-danger text-dark">'.$row->statuspembayaran.'</span>';
-                                  }else{
-                                      $statuspembayaran = '<span class="badge bg-warning text-dark">'.$row->statuspembayaran.'</span>';
-                                  }
+                            <tr style="font-size: 12px;">
+                              <th style="text-align: center;">02-07-2022<br>0215466002</th>
+                              <th style="text-align: left;">PROMO HAJI RAYA</th>
+                              <th style="text-align: left;">Sedawe Utama<br>458787</th>
+                              <th style="text-align: right;">10.000.000</th>
+                              <th style="text-align: right;">11.000.000</th>
+                              <th style="text-align: center;"><a href="<?php echo site_url('pembayaran/upload/1') ?>" class="btn btn-info btn-sm"><i class="fas fa-upload"></i> Uploads</a></th>
+                              <th style="text-align: center;">Menunggu Konfirmasi</th>
+                            </tr>
 
-                                  $buktipembayaran = '';
-                                  if (!empty($row->fotopembayaran)) {
-                                    $buktipembayaran = '<a href="'.base_url('admin/uploads/pembayaran/'.$row->fotopembayaran).'" target="_blank">'.$row->fotopembayaran.'</a><br>';
-                                  }
-                                  if ($row->statuspembayaran=='Menunggu Konfirmasi') {
-                                    
-                                    $buktipembayaran .= '<a href="'.site_url('pembayaran/upload/'.$this->encrypt->encode($row->idpembayaran)).'" class="btn btn-info btn-sm"><i class="fas fa-upload"></i> Uploads</a>';
-                                  }
-                            ?>
+                                  
 
-
-
-                                  <tr style="font-size: 12px;">
-                                    <th style="text-align: center;"><?php echo tgljamindonesia($row->tglpembayaran) . '<br>' . $row->idpembayaran  ?></th>
-                                    <th style="text-align: left;"><?php echo $row->namapaket ?></th>
-                                    <th style="text-align: left;"><?php echo $row->namausaha . '<br>' . $row->nibusaha ?></th>
-                                    <th style="text-align: right;"><?php echo format_rupiah($row->totalhargadasarpaket) ?></th>
-                                    <th style="text-align: right;"><?php echo format_rupiah($row->nominalbayar) ?></th>
-                                    <th style="text-align: center;"><?php echo $buktipembayaran ?></th>
-                                    <th style="text-align: center;"><?php echo $statuspembayaran ?></th>
-                                  </tr>
-
-                            <?php
-                                  $no++;
-                                }
-                              }
-                            ?>
                           </tbody>
                         </table>
                       </div>

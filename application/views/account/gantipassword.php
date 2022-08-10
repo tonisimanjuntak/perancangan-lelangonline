@@ -44,7 +44,7 @@
 
                     <div class="row">
                       
-                          <input type="hidden" name="idpesertalelang" id="idpesertalelang" value="<?php echo $idpesertalelang ?>">
+                          <input type="hidden" name="idpesertalelang" id="idpesertalelang" value="21212">
 
                           <div class="col-md-4">
                             <div class="card">
@@ -58,7 +58,7 @@
                                           <span class="btn btn-primary btn-file btn-block;" style="width:70%;">
                                             <span class="fileinput-new"><span class="fa fa-camera"></span> Upload Foto</span>
                                             <input type="file" name="file" id="file" accept="image/*" onchange="loadFile1(event)">
-                                            <input type="hidden" value="<?php echo $rowpeserta->foto ?>" name="file_lama" id="file_lama" class="form-control" />
+                                            <input type="hidden" value="" name="file_lama" id="file_lama" class="form-control" />
                                           </span>
                                       </div>
                                       <script type="text/javascript">
@@ -84,7 +84,7 @@
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">Username</label>
                                   <div class="col-md-9">
-                                    <input type="text" name="username" id="username" class="form-control" placeholder="Masukkan username" value="<?php echo $rowpeserta->username ?>">
+                                    <input type="text" name="username" id="username" class="form-control" placeholder="Masukkan username" value="peserta">
                                   </div>
                                 </div>
                                 <div class="form-group row p-2">

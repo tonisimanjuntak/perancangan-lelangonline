@@ -188,40 +188,8 @@
 
       //---------------------------------------------------------> JIKA EDIT DATA
       if ( idpengguna != "" ) { 
-            $.ajax({
-                type        : 'POST', 
-                url         : '<?php echo site_url("pengguna/get_edit_data") ?>', 
-                data        : {idpengguna: idpengguna}, 
-                dataType    : 'json', 
-                encode      : true
-            })      
-            .done(function(result) {
-              $("#idpengguna").val(result.idpengguna);
-              $("#namapengguna").val(result.namapengguna);
-              $("#jeniskelamin").val(result.jeniskelamin);
-              $("#alamat").val(result.alamat);
-              $("#email").val(result.email);
-              $("#notelp").val(result.notelp);
-              $("#username").val(result.username);
-              $("#statusaktif").val(result.statusaktif);
-              $("#level").val(result.level);
-
-              $("#foto").val(result.foto);
-              $('#file_lama').val(result.foto);
-
-              if ( result.foto != '' && result.foto != null ) {
-                  $("#output1").attr("src","<?php echo(base_url('uploads/pengguna/')) ?>" + result.foto);              
-              }else{
-                  $("#output1").attr("src","<?php echo(base_url('images/users.png')) ?>");    
-              }
-
-
-            }); 
-
-
             $("#lbljudul").html("Edit Data Pengguna");
             $("#lblactive").html("Edit");
-
       }else{
             $("#lbljudul").html("Tambah Data Pengguna");
             $("#lblactive").html("Tambah");

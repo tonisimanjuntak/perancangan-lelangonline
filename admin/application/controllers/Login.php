@@ -66,7 +66,7 @@ class Login extends CI_Controller {
                     'email' => '-',
                     'notelp' => '-',
                     'username' => $username,
-                    'level' => 'Admin',
+                    'level' => 'Pimpinan',
                     'statusaktif' => 'Aktif',
                     'foto' => $foto,
                 );

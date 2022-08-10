@@ -1,71 +1,13 @@
-<?php
-
-class MYPDF extends TCPDF {
- 
-	//Page header
-	public function Header() {
-	
-		$this->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
-
-		// set header and footer fonts
-		$this->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-		$this->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-
-
-		// set margins
-		//$this->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-		$this->SetMargins(PDF_MARGIN_LEFT, 10, PDF_MARGIN_RIGHT);
-		$this->SetHeaderMargin(PDF_MARGIN_HEADER);
-		$this->SetFooterMargin(PDF_MARGIN_FOOTER);
+<html>
+	<body onload="window.print();">
 		
-		// set image scale factor
-		$this->setImageScale(PDF_IMAGE_SCALE_RATIO);
-
-		// set default header data
-		$cop = '
-		<div></div>
-			<table border="0">
-			    <tr>
-			       
-			    	<td width="100%">
-						<div style="text-align:left; font-size:20px; font-weight:bold; padding-top:10px;"></div>
-
-						<i style="text-align:left; font-weight:bold; font-size:14px;">Cabang Pontianak </i>		
-			        </td>
-			        
-			    </tr>
-			</table>
-			<hr>
-			';
-
-					
-	}
-
-	// Page footer
-	public function Footer() {
-		// Position at 15 mm from bottom
-		$this->SetY(-15);
-		// Set font
-		$this->SetFont('helvetica', 'I', 8);
-		// Page number
-		$this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
-	}
-}
+		<?php
 
 
-// create new PDF document
-$pdf = new MYPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false); 
-
-$pdf->AddPage('L');
-
-$title = '
-	<span style="text-align:center; font-size:20px; font-weight:bold; padding-top:10px;">FIF GROUP CABANG PONTIANAK</span><br>	
-	<span style="text-align:center; font-size:14px; font-weight:bold; padding-top:10px;">JADWAL DAN PAKET LELANG</span><br>	
+$table = '
+	<h1 style="text-align:center; font-weight:bold;">FIF GROUP CABANG PONTIANAK</h1>
+	<h3 style="text-align:center; font-weight:bold;">JADWAL DAN PAKET LELANG</h3><br>	
 ';
-$pdf->SetFont('times', '', 16);
-$pdf->writeHTML($title, true, false, false, false, '');
-$pdf->SetTopMargin(15);
-$table = '';
 
 $table  .= '
 	<style>
@@ -78,12 +20,6 @@ $table  .= '
 	</style>
 
 ';
-
-if (!empty($rowpaketlelang->namausaha)) {
-	$namapemenang = $rowpaketlelang->namausaha.' ('.$rowpaketlelang->namapemilik.')';
-}else{
-	$namapemenang = '-';
-}
 
 $table .= '<br><br>';
 $table  .= '<table border="0" cellpadding="2">
@@ -257,17 +193,10 @@ $table .= ' </tbody>
 			</table>';
 
 
+echo $table;
 
-
-
-$pdf->SetTopMargin(35);
-$pdf->SetFont('times', '', 10);
-$pdf->writeHTML($table, true, false, false, false, '');
-
-
-$tglcetak = date('d-m-Y');
-
-
-
-$pdf->Output();
 ?>
+
+
+	</body>
+</html>

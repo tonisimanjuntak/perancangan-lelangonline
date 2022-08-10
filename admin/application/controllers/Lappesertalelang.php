@@ -20,13 +20,12 @@ class Lappesertalelang extends MY_Controller {
     }   
 
     public function cetak()
-	{
-		error_reporting(0);
-		$this->load->library('Pdf');
-		$subjudul .= "";
+	{    
+		// error_reporting(0);
+		// $this->load->library('Pdf');
 		$idpaket = $this->uri->segment(3);
 		$data['idpaket'] = $idpaket;
-        $this->load->view('lappesertalelang/cetak', $data);
+        $this->load->view('lappesertalelang/cetak2', $data);
 	}
 
 }

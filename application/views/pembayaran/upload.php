@@ -28,7 +28,7 @@
             <div class="border-start border-5 border-primary ps-4">
               <h6 class="text-body text-uppercase mb-2">Upload Pembayaran Pemenang Lelang</h6>
               <h1 class="display-6 mb-0">
-                <?php echo $rowpaket->namapaket ?>
+                PROMO HAJI RAYA
               </h1>
             </div>
           </div>
@@ -42,11 +42,11 @@
                     
                     <div class="col-md-8 mb-5">
                       <h5 class="text-muted">Deskripsi Jadwal:</h5>
-                      <?php echo $rowpaket->deskripsi ?>
+                      Murah Meriah Honda Scoopy
                     </div>
                     <div class="col-md-4 text-center" style="font-size: 26px; font-weight: bold;">
                       <?php  
-                          echo '<i class="text-success">TOTAL BID : Rp. '.format_rupiah($rowpaket->totalhargabid).'</i>';
+                          echo '<i class="text-success">TOTAL BID : Rp. 11.000.000</i>';
                       ?>
                       
                     </div>
@@ -55,8 +55,8 @@
 
                       <form action="<?php echo site_url('pembayaran/simpanupload') ?>" id ="form" method="post" enctype="multipart/form-data">
                         
-                        <input type="hidden" name="idpembayaran" id="idpembayaran" value="<?php echo $idpembayaran ?>">
-                        <input type="hidden" name="idpaket" id="idpaket" value="<?php echo $idpaket ?>">
+                        <input type="hidden" name="idpembayaran" id="idpembayaran" value="121212">
+                        <input type="hidden" name="idpaket" id="idpaket" value="1212121">
 
                         <div class="row">
                           <div class="col-12">
@@ -71,12 +71,12 @@
                                   <div class="form-group row text center">
                                     <label for="" class="col-md-12 col-form-label">Bukti Pembayaran <span style="color: red; font-size: 12px; font-weight: bold;"><i> Max ukuran file 2MB</i></span></label>
                                     <div class="col-md-12 mt-3 text-center">
-                                      <img src="<?php echo $fotopembayaran; ?>" id="output1" class="img-thumbnail" style="width:50%;max-height:50%;">
+                                      <img src="<?php echo base_url('images/noimage.jpg'); ?>" id="output1" class="img-thumbnail" style="width:50%;max-height:50%;">
                                       <div class="form-group">
                                           <span class="btn btn-primary btn-file btn-block;" style="width:50%;">
                                             <span class="fileinput-new"><span class="fa fa-camera"></span> Upload Foto</span>
                                             <input type="file" name="file" id="file" accept="image/*" onchange="loadFile1(event)">
-                                            <input type="hidden" value="<?php echo $rowpembayaran->fotopembayaran ?>" name="file_lama" id="file_lama" class="form-control" />
+                                            <input type="hidden" value="" name="file_lama" id="file_lama" class="form-control" />
                                           </span>
                                       </div>
                                       <script type="text/javascript">
@@ -118,17 +118,17 @@
                                 <tr>
                                   <th>Id Jadwal Lelang</th>
                                   <th>:</th>
-                                  <th><?php echo $rowpaket->idpaket ?></th>
+                                  <th>12546663</th>
                                 </tr>
                                 <tr>
                                   <th>Tgl Mulai Lelang</th>
                                   <th>:</th>
-                                  <th><?php echo date('d-m-Y H:i', strtotime($rowpaket->tgljammulai))  ?></th>
+                                  <th>01-06-2022</th>
                                 </tr>
                                 <tr>
                                   <th>Tgl Berakhir Lelang</th>
                                   <th>:</th>
-                                  <th><?php echo date('d-m-Y H:i', strtotime($rowpaket->tgljammulai))  ?></th>
+                                  <th>31-08-2022</th>
                                 </tr>
                               </table>
 
@@ -145,17 +145,17 @@
                                 <tr>
                                   <th>Total Harga Dasar</th>
                                   <th>:</th>
-                                  <th><?php echo format_rupiah($rowpaket->totalhargadasarpaket) ?></th>
+                                  <th>10.000.000</th>
                                 </tr>
                                 <tr>
                                   <th>Total Harga Bid</th>
                                   <th>:</th>
-                                  <th style="font-weight: bold; font-size: 18px;"><?php echo format_rupiah($rowpaket->totalhargabid) ?></th>
+                                  <th style="font-weight: bold; font-size: 18px;">11.000.000</th>
                                 </tr>
                                 <tr>
                                   <th>Pemenang Lelang</th>
                                   <th>:</th>
-                                  <th><?php echo $rowpaket->namausaha ?></th>
+                                  <th>Sedawe Utama</th>
                                 </tr>
                               </table>
 
@@ -166,12 +166,6 @@
 
                       </div>
                     </div>
-
-
-
-                    
-
-                    
 
 
                   </div>

@@ -44,7 +44,7 @@
 
                     <div class="row">
                       
-                          <input type="hidden" name="idpesertalelang" id="idpesertalelang" value="<?php echo $idpesertalelang ?>">
+                          <input type="hidden" name="idpesertalelang" id="idpesertalelang" value="12212">
 
                           <div class="col-md-4">
                             <div class="card">
@@ -58,7 +58,7 @@
                                           <span class="btn btn-primary btn-file btn-block;" style="width:70%;">
                                             <span class="fileinput-new"><span class="fa fa-camera"></span> Upload Foto</span>
                                             <input type="file" name="file" id="file" accept="image/*" onchange="loadFile1(event)">
-                                            <input type="hidden" value="<?php echo $rowpeserta->foto ?>" name="file_lama" id="file_lama" class="form-control" />
+                                            <input type="hidden" value="" name="file_lama" id="file_lama" class="form-control" />
                                           </span>
                                       </div>
                                       <script type="text/javascript">
@@ -84,25 +84,25 @@
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">Nama Usaha</label>
                                   <div class="col-md-9">
-                                    <input type="text" name="namausaha" id="namausaha" class="form-control" placeholder="Masukkan nama usaha" value="<?php echo $rowpeserta->namausaha ?>">
+                                    <input type="text" name="namausaha" id="namausaha" class="form-control" placeholder="Masukkan nama usaha" value="Sedawe Utama">
                                   </div>
                                 </div>
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">NIB Usaha</label>
                                   <div class="col-md-9">
-                                    <input type="text" name="nibusaha" id="nibusaha" class="form-control" placeholder="Masukkan nib usaha" value="<?php echo $rowpeserta->nibusaha ?>">
+                                    <input type="text" name="nibusaha" id="nibusaha" class="form-control" placeholder="Masukkan nib usaha" value="458787">
                                   </div>
                                 </div>                      
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">Email Usaha</label>
                                   <div class="col-md-9">
-                                    <input type="text" name="emailusaha" id="emailusaha" class="form-control" placeholder="Masukkan email usaha" value="<?php echo $rowpeserta->emailusaha ?>">
+                                    <input type="text" name="emailusaha" id="emailusaha" class="form-control" placeholder="Masukkan email usaha" value="sedawe@gmail.com">
                                   </div>
                                 </div>
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">No Telepon Usaha</label>
                                   <div class="col-md-9">
-                                    <input type="text" name="notelpusaha" id="notelpusaha" class="form-control" placeholder="Masukkan no telepon usaha" value="<?php echo $rowpeserta->notelpusaha ?>">
+                                    <input type="text" name="notelpusaha" id="notelpusaha" class="form-control" placeholder="Masukkan no telepon usaha" value="05685454">
                                   </div>
                                 </div>
                                 
@@ -111,13 +111,13 @@
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">Nama Pemilik</label>
                                   <div class="col-md-9">
-                                    <input type="text" name="namapemilik" id="namapemilik" class="form-control" placeholder="Masukkan nama pemilik" value="<?php echo $rowpeserta->namapemilik ?>">
+                                    <input type="text" name="namapemilik" id="namapemilik" class="form-control" placeholder="Masukkan nama pemilik" value="Trihardoyo">
                                   </div>
                                 </div>
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">NIK Pemilik</label>
                                   <div class="col-md-9">
-                                    <input type="text" name="nikpemilik" id="nikpemilik" class="form-control" placeholder="Masukkan nik pemilik" value="<?php echo $rowpeserta->nikpemilik ?>">
+                                    <input type="text" name="nikpemilik" id="nikpemilik" class="form-control" placeholder="Masukkan nik pemilik" value="659898975454001">
                                   </div>
                                 </div>
                                 <div class="form-group row p-2">
@@ -125,27 +125,27 @@
                                   <div class="col-md-9">
                                     <select name="jeniskelaminpemilik" id="jeniskelaminpemilik" class="form-control">
                                       <option value="">Pilih jenis kelamin...</option>
-                                      <option value="Laki-laki" <?php echo ($rowpeserta->jeniskelaminpemilik=='Laki-laki') ? 'selected="selected"' : '' ?> >Laki-laki</option>
-                                      <option value="Perempuan" <?php echo ($rowpeserta->jeniskelaminpemilik=='Perempuan') ? 'selected="selected"' : '' ?>>Perempuan</option>
+                                      <option value="Laki-laki" selected="selected">Laki-laki</option>
+                                      <option value="Perempuan">Perempuan</option>
                                     </select>
                                   </div>
                                 </div>
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">Email Pemilik</label>
                                   <div class="col-md-9">
-                                    <input type="text" name="emailpemilik" id="emailpemilik" class="form-control" placeholder="Masukkan email pemilik" value="<?php echo $rowpeserta->emailpemilik ?>">
+                                    <input type="text" name="emailpemilik" id="emailpemilik" class="form-control" placeholder="Masukkan email pemilik" value="trihardoyo@gmail.com">
                                   </div>
                                 </div>
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">No Telepon Pemilik</label>
                                   <div class="col-md-9">
-                                    <input type="text" name="notelppemilik" id="notelppemilik" class="form-control" placeholder="Masukkan no telepon pemilik" value="<?php echo $rowpeserta->notelppemilik ?>">
+                                    <input type="text" name="notelppemilik" id="notelppemilik" class="form-control" placeholder="Masukkan no telepon pemilik" value="085645452211">
                                   </div>
                                 </div>
                                 <div class="form-group row p-2">
                                   <label for="" class="col-md-3 col-form-label">Alamat Pemilik</label>
                                   <div class="col-md-9">
-                                    <textarea name="alamatpemilik" id="alamatpemilik" class="form-control" rows="3" placeholder="Alamat lengkap pemilik"><?php echo $rowpeserta->alamatpemilik ?></textarea>
+                                    <textarea name="alamatpemilik" id="alamatpemilik" class="form-control" rows="3" placeholder="Alamat lengkap pemilik">Jl. Perjuangan Raya</textarea>
                                   </div>
                                 </div>
 

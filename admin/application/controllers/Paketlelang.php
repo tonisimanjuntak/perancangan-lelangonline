@@ -31,8 +31,8 @@ class Paketlelang extends MY_Controller {
 
     public function cetak($idpaket)
     {
-        error_reporting(0);
-        $this->load->library('Pdf');
+        // error_reporting(0);
+        // $this->load->library('Pdf');
         $data['idpaket'] =$idpaket; 
         $this->load->view('paketlelang/cetak',$data);
     }

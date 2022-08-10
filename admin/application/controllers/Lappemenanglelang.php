@@ -29,15 +29,15 @@ class Lappemenanglelang extends my_Controller {
 
     public function cetak()
 	{
-		error_reporting(0);
-		$this->load->library('Pdf');
-		$subjudul .= "";
+		// error_reporting(0);
+		// $this->load->library('Pdf');
+		// $subjudul .= "";
 		$tglawal 		= date('Y-m-d', strtotime($this->uri->segment(3)));
 		$tglakhir 		= date('Y-m-d', strtotime($this->uri->segment(4)));
 		
 		$data['tglawal'] = $tglawal;
 		$data['tglakhir'] = $tglakhir;
-        $this->load->view('lappemenanglelang/cetak', $data);
+        $this->load->view('lappemenanglelang/cetak2', $data);
 	}
 
 }

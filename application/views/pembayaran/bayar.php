@@ -28,7 +28,7 @@
             <div class="border-start border-5 border-primary ps-4">
               <h6 class="text-body text-uppercase mb-2">Pembayaran Pemenang Lelang</h6>
               <h1 class="display-6 mb-0">
-                <?php echo $rowpaket->namapaket ?>
+                PROMO HAJI RAYA
               </h1>
             </div>
           </div>
@@ -42,11 +42,11 @@
                     
                     <div class="col-md-8 mb-5">
                       <h5 class="text-muted">Deskripsi Jadwal:</h5>
-                      <?php echo $rowpaket->deskripsi ?>
+                      Murah Meriah Honda Scoopy
                     </div>
                     <div class="col-md-4 text-center" style="font-size: 26px; font-weight: bold;">
                       <?php  
-                          echo '<i class="text-success">TOTAL BID : Rp. '.format_rupiah($rowpaket->totalhargabid).'</i>';
+                          echo '<i class="text-success">TOTAL BID : Rp. 11.0000.000</i>';
                       ?>
                       
                     </div>
@@ -55,45 +55,38 @@
 
                       <form action="<?php echo site_url('pembayaran/simpan') ?>" id ="form" method="post">
                         
-                        <input type="hidden" name="idpaket" id="idpaket" value="<?php echo $rowpaket->idpaket ?>">
-                        <input type="hidden" name="idbid" id="idbid" value="<?php echo $rowpaket->idbidpemenang ?>">
-                        <input type="hidden" name="nominalbayar" id="nominalbayar" value="<?php echo $rowpaket->totalhargabid ?>">
+                        <input type="hidden" name="idpaket" id="idpaket" value="1212">
+                        <input type="hidden" name="idbid" id="idbid" value="12121">
+                        <input type="hidden" name="nominalbayar" id="nominalbayar" value="121212">
                         <div class="row">
                           <div class="col-12">
                             <h3>Selamat!</h3>
                           </div>
                           <div class="col-12">
-                            Anda terpilih sebagai pemenang lelang <strong><?php echo $rowpaket->namapaket ?></strong>. Silahkan melakukan pembayaran sebesar <strong>Rp. <?php echo format_rupiah($rowpaket->totalhargabid) ?></strong> ke rekening dibawah ini.
+                            Anda terpilih sebagai pemenang lelang <strong>PROMO HAJI RAYA</strong>. Silahkan melakukan pembayaran sebesar <strong>Rp. 11.000.0000</strong> ke rekening dibawah ini.
                           </div>
                           <div class="col-12">
-                            <?php  
-                              $rsbank = $this->db->query("select * from bank where statusaktif='Aktif' order by idbank desc");
-                              if ($rsbank->num_rows()>0) {
-                                $no=1;
-                                foreach ($rsbank->result() as $row) {
-                                  $checked ='';
-                                  if ($no==1) {
-                                    $checked = 'checked';
-                                  }
 
-                                  if (!empty($row->logobank)) {
-                                    $logobank = base_url('admin/uploads/bank/'.$row->logobank);
-                                  }else{
-                                    $logobank = base_url('admin/images/bank.jpg');
-                                  }
-                                  echo '
-                                    <div class="form-check p-3">
-                                      <input class="form-check-input" type="radio" name="idbank" id="idbank'.$row->idbank.'" '.$checked.' value="'.$row->idbank.'">
-                                      <label class="form-check-label" for="idbank'.$row->idbank.'">
-                                        <img src="'.$logobank.'" alt="" width="80px"><div class="ml-3">'.$row->namabank.' ('.$row->norekening.')'.'</div>
-                                      </label>
-                                    </div>
-                                  ';
-                                  $no++;
-                                }
-                              }
-                            ?>
-                            
+                            <div class="form-check p-3">
+                              <input class="form-check-input" type="radio" name="idbank" id="idbank01" checked="" value="01">
+                              <label class="form-check-label" for="idbank01">
+                                <img src="<?php echo base_url('admin/uploads/bank/2560px-BANK_BRI_logo_svg.png') ?>" alt="" width="80px"><div class="ml-3">BANK RAKYAT INDONESIA (95864587)</div>
+                              </label>
+                            </div>                
+
+                            <div class="form-check p-3">
+                              <input class="form-check-input" type="radio" name="idbank" id="idbank02" value="01">
+                              <label class="form-check-label" for="idbank02">
+                                <img src="<?php echo base_url('admin/uploads/bank/2560px-Bank_Central_Asia_svg.png') ?>" alt="" width="80px"><div class="ml-3">BANK CENTRAL ASIA (454684547)</div>
+                              </label>
+                            </div>  
+
+                            <div class="form-check p-3">
+                              <input class="form-check-input" type="radio" name="idbank" id="idbank03" value="01">
+                              <label class="form-check-label" for="idbank03">
+                                <img src="<?php echo base_url('admin/uploads/bank/Bank_Mandiri_logo_2016_svg.png') ?>" alt="" width="80px"><div class="ml-3">BANK MANDIRI TBK (5684852)</div>
+                              </label>
+                            </div>                            
                             
                           </div>
                           <div class="col-12 mt-5">
@@ -141,17 +134,17 @@
                                 <tr>
                                   <th>Id Jadwal Lelang</th>
                                   <th>:</th>
-                                  <th><?php echo $rowpaket->idpaket ?></th>
+                                  <th>2541225</th>
                                 </tr>
                                 <tr>
                                   <th>Tgl Mulai Lelang</th>
                                   <th>:</th>
-                                  <th><?php echo date('d-m-Y H:i', strtotime($rowpaket->tgljammulai))  ?></th>
+                                  <th>01-06-2022</th>
                                 </tr>
                                 <tr>
                                   <th>Tgl Berakhir Lelang</th>
                                   <th>:</th>
-                                  <th><?php echo date('d-m-Y H:i', strtotime($rowpaket->tgljammulai))  ?></th>
+                                  <th>31-08-2022</th>
                                 </tr>
                               </table>
 
@@ -168,17 +161,17 @@
                                 <tr>
                                   <th>Total Harga Dasar</th>
                                   <th>:</th>
-                                  <th><?php echo format_rupiah($rowpaket->totalhargadasarpaket) ?></th>
+                                  <th>10.0000.000</th>
                                 </tr>
                                 <tr>
                                   <th>Total Harga Bid</th>
                                   <th>:</th>
-                                  <th style="font-weight: bold; font-size: 18px;"><?php echo format_rupiah($rowpaket->totalhargabid) ?></th>
+                                  <th style="font-weight: bold; font-size: 18px;">11.0000.000</th>
                                 </tr>
                                 <tr>
                                   <th>Pemenang Lelang</th>
                                   <th>:</th>
-                                  <th><?php echo $rowpaket->namausaha ?></th>
+                                  <th>Sedawe Utama</th>
                                 </tr>
                               </table>
 
